@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brandon Yuen — Aerospace &amp; Mechanical Engineer</title>
+<meta name="description" content="Portfolio of Tsan Hoi Zulniro (Brandon) Yuen — Aerospace &amp; Mechanical Engineer. UNSW BE (Honours) Aerospace Engineering graduate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --paper:#FAFAF7;
+  --paper-2:#F3F2EC;
+  --ink:#1C1F22;
+  --ink-soft:#3A3E42;
+  --blueprint:#2B4C7E;
+  --blueprint-light:#4E71A6;
+  --titanium:#8B8578;
+  --redline:#B23A2F;
+  --hairline:#D8D6CE;
+  --hairline-strong:#B9B6A8;
+  --font-display:'Space Grotesk', sans-serif;
+  --font-body:'Inter', sans-serif;
+  --font-mono:'IBM Plex Mono', monospace;
+  --sheet-margin: clamp(14px, 3vw, 34px);
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+
+html{ scroll-behavior:smooth; }
+
+body{
+  background:var(--paper-2);
+  color:var(--ink);
+  font-family:var(--font-body);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.6;
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; }
+}
+
+a{ color:inherit; text-decoration:none; }
+
+::selection{ background:var(--blueprint); color:var(--paper); }
+
+/* ---------- sheet chrome ---------- */
+
+.sheet{
+  position:relative;
+  max-width:1180px;
+  margin:0 auto;
+  background:var(--paper);
+  border:1px solid var(--hairline-strong);
+  border-radius:2px;
+}
+
+.reg-mark{
+  position:absolute;
+  width:20px;
+  height:20px;
+  z-index:5;
+  color:var(--titanium);
+  pointer-events:none;
+}
+.reg-mark svg{ width:100%; height:100%; display:block; }
+.reg-mark.tl{ top:10px; left:10px; }
+.reg-mark.tr{ top:10px; right:10px; }
+.reg-mark.bl{ bottom:10px; left:10px; }
+.reg-mark.br{ bottom:10px; right:10px; }
+
+.edge-label{
+  position:absolute;
+  top:50%;
+  right:-14px;
+  transform:translateY(-50%) rotate(90deg);
+  transform-origin:center;
+  font-family:var(--font-mono);
+  font-size:10px;
+  letter-spacing:0.18em;
+  color:var(--titanium);
+  white-space:nowrap;
+  display:none;
+}
+@media (min-width:900px){ .edge-label{ display:block; } }
+
+/* ---------- nav / title block ---------- */
+
+.titleblock{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:24px;
+  padding: 22px var(--sheet-margin) 16px;
+  border-bottom:1px solid var(--hairline);
+  flex-wrap:wrap;
+}
+
+.mark{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:19px;
+  letter-spacing:-0.01em;
+}
+.mark span{ color:var(--blueprint); }
+
+.mark-sub{
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.08em;
+  color:var(--titanium);
+  margin-top:2px;
+}
+
+nav{
+  display:flex;
+  gap:22px;
+  align-items:center;
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:0.06em;
+}
+nav a{
+  color:var(--ink-soft);
+  padding:4px 0;
+  border-bottom:1px solid transparent;
+  transition:border-color .2s ease, color .2s ease;
+}
+nav a:hover, nav a:focus-visible{ color:var(--blueprint); border-color:var(--blueprint); }
+
+.tb-meta{
+  display:none;
+  font-family:var(--font-mono);
+  font-size:10px;
+  color:var(--titanium);
+  text-align:right;
+  line-height:1.9;
+  letter-spacing:0.03em;
+  border-left:1px solid var(--hairline);
+  padding-left:16px;
+}
+.tb-meta b{ color:var(--ink-soft); font-weight:500; }
+@media (min-width:820px){ .tb-meta{ display:block; } }
+
+/* ---------- section shell ---------- */
+
+section{ padding: 64px var(--sheet-margin); border-bottom:1px solid var(--hairline); position:relative; }
+section:last-of-type{ border-bottom:none; }
+
+.divider{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:40px;
+  user-select:none;
+}
+.divider .num{
+  font-family:var(--font-mono);
+  font-size:12px;
+  color:var(--blueprint);
+  font-weight:500;
+  letter-spacing:0.04em;
+}
+.divider .label{
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:0.14em;
+  color:var(--ink-soft);
+  white-space:nowrap;
+}
+.divider .line{
+  flex:1;
+  height:1px;
+  background:var(--hairline-strong);
+  position:relative;
+  overflow:hidden;
+}
+.divider .line::after{
+  content:"";
+  position:absolute; inset:0;
+  background:var(--blueprint);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 1.1s cubic-bezier(.16,.84,.44,1);
+}
+.divider.in-view .line::after{ transform:scaleX(1); }
+.divider .tick{
+  width:1px; height:7px; background:var(--hairline-strong);
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .7s ease, transform .7s ease;
+}
+.reveal.in-view{ opacity:1; transform:translateY(0); }
+
+/* ---------- hero ---------- */
+
+.hero{
+  padding-top:56px;
+  background-image:
+    linear-gradient(var(--hairline) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hairline) 1px, transparent 1px);
+  background-size:34px 34px;
+  background-position: -1px -1px;
+  -webkit-mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+          mask-image: linear-gradient(to bottom, black 0%, black 55%, transparent 100%);
+}
+
+.hero-inner{ display:grid; grid-template-columns: 1fr; gap:36px; align-items:start; }
+@media (min-width:960px){ .hero-inner{ grid-template-columns: 1.15fr 0.85fr; gap:48px; } }
+
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12px;
+  letter-spacing:0.16em;
+  color:var(--blueprint);
+  margin-bottom:18px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.eyebrow::before{ content:""; width:24px; height:1px; background:var(--blueprint); display:inline-block; }
+
+h1{
+  font-family:var(--font-display);
+  font-weight:600;
+  font-size:clamp(30px, 4.4vw, 50px);
+  line-height:1.12;
+  letter-spacing:-0.01em;
+  max-width:15ch;
+}
+h1 em{ font-style:normal; color:var(--blueprint); }
+
+.hero-sub{
+  margin-top:22px;
+  max-width:52ch;
+  color:var(--ink-soft);
+  font-size:15.5px;
+}
+
+.cta-row{ display:flex; flex-wrap:wrap; gap:12px; margin-top:32px; }
+
+.btn{
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  letter-spacing:0.05em;
+  padding:12px 18px;
+  border:1px solid var(--ink);
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  transition:background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+}
+.btn:hover, .btn:focus-visible{ background:var(--ink); color:var(--paper); transform:translateY(-1px); }
+.btn.primary{ background:var(--blueprint); border-color:var(--blueprint); color:var(--paper); }
+.btn.primary:hover{ background:var(--ink); border-color:var(--ink); }
+.btn.ghost{ border-color:var(--hairline-strong); color:var(--ink-soft); }
+.btn.ghost:hover{ border-color:var(--ink); }
+
+.hero-diagram{ width:100%; aspect-ratio: 4 / 3; }
+.hero-diagram svg{ width:100%; height:100%; display:block; }
+
+/* ---------- about ---------- */
+
+.about-grid{ display:grid; grid-template-columns:1fr; gap:44px; }
+@media (min-width:900px){ .about-grid{ grid-template-columns: 1.2fr 1fr; } }
+
+.about-text p{ color:var(--ink-soft); font-size:15.5px; margin-bottom:16px; max-width:60ch; }
+.about-text p strong{ color:var(--ink); font-weight:500; }
+
+.notes-panel{
+  border:1px solid var(--hairline-strong);
+  padding:20px 20px 6px;
+}
+.notes-title{
+  font-family:var(--font-mono);
+  font-size:11px;
+  letter-spacing:0.14em;
+  color:var(--titanium);
+  margin-bottom:16px;
+}
+.note-item{
+  display:flex; gap:12px;
+  padding-bottom:16px;
+  margin-bottom:16px;
+  border-bottom:1px dashed var(--hairline);
+  font-size:14px;
+  color:var(--ink-soft);
+}
+.note-item:last-child{ border-bottom:none; margin-bottom:0; padding-bottom:14px; }
+.flag{
+  flex-shrink:0;
+  width:22px; height:22px;
+  border:1px solid var(--blueprint);
+  color:var(--blueprint);
+  font-family:var(--font-mono);
+  font-size:11px;
+  display:flex; align-items:center; justify-content:center;
+  transform:rotate(45deg);
+}
+.flag span{ transform:rotate(-45deg); }
+
+/* ---------- experience ---------- */
+
+.timeline{ display:flex; flex-direction:column; }
+
+.tl-item{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap:6px;
+  padding:26px 0;
+  border-top:1px solid var(--hairline);
+  position:relative;
+}
+.tl-item:first-child{ border-top:1px solid var(--hairline-strong); }
+
+@media (min-width:820px){
+  .tl-item{ grid-template-columns: 190px 1fr; gap:28px; }
+}
+
+.tl-meta{ font-family:var(--font-mono); }
+.tl-date{ font-size:12px; color:var(--blueprint); letter-spacing:0.02em; }
+.tl-loc{ font-size:11px; color:var(--titanium); margin-top:4px; }
+
+.tl-role{ font-family:var(--font-display); font-size:18px; font-weight:600; margin-bottom:2px; }
+.tl-org{ font-size:13.5px; color:var(--titanium); margin-bottom:12px; }
+
+.tl-list{ list-style:none; display:flex; flex-direction:column; gap:8px; max-width:64ch; }
+.tl-list li{
+  font-size:14px; color:var(--ink-soft);
+  padding-left:16px;
+  position:relative;
+}
+.tl-list li::before{
+  content:"—";
+  position:absolute; left:0; top:0;
+  color:var(--blueprint);
+}
+
+/* ---------- work cards ---------- */
+
+.work-grid{ display:grid; grid-template-columns:1fr; gap:22px; }
+@media (min-width:760px){ .work-grid{ grid-template-columns:repeat(3,1fr); } }
+
+.card{
+  border:1px solid var(--hairline-strong);
+  padding:22px 20px 20px;
+  display:flex;
+  flex-direction:column;
+  transition:border-color .25s ease, box-shadow .25s ease;
+  position:relative;
+}
+.card:hover{ border-color:var(--blueprint); }
+
+.card-head{
+  display:flex; justify-content:space-between; align-items:baseline;
+  font-family:var(--font-mono); font-size:10.5px; color:var(--titanium);
+  letter-spacing:0.04em;
+  padding-bottom:12px; margin-bottom:14px;
+  border-bottom:1px dashed var(--hairline);
+}
+
+.card h3{
+  font-family:var(--font-display); font-size:17px; font-weight:600;
+  margin-bottom:10px; line-height:1.3;
+}
+
+.card p{ font-size:13.8px; color:var(--ink-soft); flex-grow:1; margin-bottom:16px; }
+
+.tags{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px; }
+.tag{
+  font-family:var(--font-mono); font-size:10.5px;
+  border:1px solid var(--hairline-strong); color:var(--ink-soft);
+  padding:3px 8px;
+}
+
+.card-link{
+  font-family:var(--font-mono); font-size:12px; color:var(--blueprint);
+  display:inline-flex; align-items:center; gap:6px;
+  border-top:1px solid var(--hairline); padding-top:14px;
+}
+.card-link svg{ width:11px; height:11px; transition:transform .2s ease; }
+.card:hover .card-link svg{ transform:translate(2px,-2px); }
+
+/* ---------- beyond ---------- */
+
+.beyond-wrap{ display:grid; grid-template-columns:1fr; gap:40px; align-items:center; }
+@media (min-width:900px){ .beyond-wrap{ grid-template-columns:1fr 1fr; } }
+.beyond-text p{ color:var(--ink-soft); font-size:15.5px; max-width:58ch; }
+.beyond-diagram{ width:100%; }
+.beyond-diagram svg{ width:100%; height:auto; display:block; }
+
+/* ---------- contact ---------- */
+
+.contact-wrap{ display:flex; flex-direction:column; align-items:flex-start; gap:26px; }
+.contact-wrap h2{
+  font-family:var(--font-display); font-weight:600;
+  font-size:clamp(24px,3.4vw,36px);
+  max-width:16ch;
+}
+.contact-sub{ color:var(--ink-soft); font-size:15px; max-width:52ch; }
+
+/* ---------- footer ---------- */
+
+footer{
+  display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px;
+  padding:20px var(--sheet-margin) 26px;
+  font-family:var(--font-mono); font-size:10.5px; color:var(--titanium);
+  letter-spacing:0.04em;
+}
+
+/* ---------- headings shared ---------- */
+
+h2.section-title{
+  font-family:var(--font-display); font-weight:600;
+  font-size:clamp(20px,2.6vw,26px);
+  margin-bottom:6px;
+}
+
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+</style>
+</head>
+<body>
+
+<div class="sheet">
+  <div class="reg-mark tl" aria-hidden="true"><svg viewBox="0 0 20 20"><line x1="10" y1="0" x2="10" y2="20" stroke="currentColor" stroke-width="1"/><line x1="0" y1="10" x2="20" y2="10" stroke="currentColor" stroke-width="1"/><circle cx="10" cy="10" r="5" fill="none" stroke="currentColor" stroke-width="1"/></svg></div>
+  <div class="reg-mark tr" aria-hidden="true"><svg viewBox="0 0 20 20"><line x1="10" y1="0" x2="10" y2="20" stroke="currentColor" stroke-width="1"/><line x1="0" y1="10" x2="20" y2="10" stroke="currentColor" stroke-width="1"/><circle cx="10" cy="10" r="5" fill="none" stroke="currentColor" stroke-width="1"/></svg></div>
+  <div class="reg-mark bl" aria-hidden="true"><svg viewBox="0 0 20 20"><line x1="10" y1="0" x2="10" y2="20" stroke="currentColor" stroke-width="1"/><line x1="0" y1="10" x2="20" y2="10" stroke="currentColor" stroke-width="1"/><circle cx="10" cy="10" r="5" fill="none" stroke="currentColor" stroke-width="1"/></svg></div>
+  <div class="reg-mark br" aria-hidden="true"><svg viewBox="0 0 20 20"><line x1="10" y1="0" x2="10" y2="20" stroke="currentColor" stroke-width="1"/><line x1="0" y1="10" x2="20" y2="10" stroke="currentColor" stroke-width="1"/><circle cx="10" cy="10" r="5" fill="none" stroke="currentColor" stroke-width="1"/></svg></div>
+  <div class="edge-label" aria-hidden="true">BRANDON YUEN — PORTFOLIO — SHEET 1 OF 1</div>
+
+  <header class="titleblock">
+    <div>
+      <div class="mark">BRANDON <span>YUEN</span></div>
+      <div class="mark-sub">AEROSPACE &amp; MECHANICAL ENGINEERING</div>
+    </div>
+    <nav aria-label="Primary">
+      <a href="#about">ABOUT</a>
+      <a href="#experience">EXPERIENCE</a>
+      <a href="#work">WORK</a>
+      <a href="#beyond">BEYOND</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <div class="tb-meta">
+      NAME: <b>T.H.Z. YUEN</b><br>
+      DRAWN: <b>UNSW BE(HONS) AERO</b><br>
+      SCALE: <b>N.T.S.</b><br>
+      SHEET: <b>1 OF 1</b> &nbsp; REV: <b>2026.08</b>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">SYDNEY, AU — OPEN TO RELOCATION</div>
+        <h1>From Mach&nbsp;3 wake data to cabin floor drawings — I build things that hold up <em>under scrutiny</em>.</h1>
+        <p class="hero-sub">BE (Honours) Aerospace Engineering graduate from UNSW, currently diagnosing and repairing precision hardware at Noritsu Koki. Previously drafted cabin modifications at Qantas and fabrication drawings at Metwest Steel. I like taking a system apart to understand why it works, then documenting it so somebody else can trust it too.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="mailto:yuenzulniro25@gmail.com">Email Brandon</a>
+          <a class="btn" href="https://www.linkedin.com/in/tsan-hoi-zulniro-brandon-yuen-83b472233" target="_blank" rel="noopener">Connect on LinkedIn</a>
+          <a class="btn ghost" href="resume.pdf" target="_blank" rel="noopener">Download résumé</a>
+        </div>
+      </div>
+      <div class="hero-diagram" aria-hidden="true">
+        <svg viewBox="0 0 400 300" fill="none">
+          <rect x="0.5" y="0.5" width="399" height="299" stroke="var(--hairline-strong)"/>
+          <circle cx="90" cy="150" r="22" fill="none" stroke="var(--ink)" stroke-width="1.4"/>
+          <path id="wake-a" d="M112,138 C 180,120 230,150 260,110 C 290,70 330,95 380,80" stroke="var(--blueprint)" stroke-width="1.2" stroke-dasharray="4 4" opacity="0.8"/>
+          <path id="wake-b" d="M112,150 C 190,150 230,150 270,150 C 320,150 340,150 385,150" stroke="var(--ink)" stroke-width="1.4"/>
+          <path id="wake-c" d="M112,162 C 180,180 230,150 260,190 C 290,230 330,205 380,220" stroke="var(--blueprint)" stroke-width="1.2" stroke-dasharray="4 4" opacity="0.8"/>
+          <line x1="60" y1="240" x2="340" y2="240" stroke="var(--titanium)" stroke-width="1"/>
+          <line x1="60" y1="234" x2="60" y2="246" stroke="var(--titanium)" stroke-width="1"/>
+          <line x1="340" y1="234" x2="340" y2="246" stroke="var(--titanium)" stroke-width="1"/>
+          <text x="150" y="258" font-family="IBM Plex Mono" font-size="10" fill="var(--titanium)">M = 3.0 — WAKE FIELD</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="divider reveal">
+      <span class="num">01</span><span class="label">ABOUT</span><span class="line"></span><span class="tick"></span>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <h2 class="section-title">A generalist by design</h2>
+        <p>I graduated from UNSW with a <strong>Bachelor of Engineering (Honours) in Aerospace Engineering</strong>, Class 2:1, Distinction WAM. My thesis modelled supersonic wake dynamics behind a bluff body at Mach 3, and it taught me the lesson every job since has reinforced: a result is only as good as the process that produced it, and only as useful as the report that explains it.</p>
+        <p>I move comfortably between CAD systems, CFD solvers, and a multimeter, and I'd rather understand a system fully — before and after I touch it — than treat any tool as a black box. I'm currently expanding that range at Noritsu Koki, where fault-finding is a daily exercise in narrowing possibility spaces down to root cause.</p>
+      </div>
+      <div class="notes-panel reveal">
+        <div class="notes-title">GENERAL NOTES</div>
+        <div class="note-item"><div class="flag"><span>1</span></div>Based in Sydney, NSW — open to relocating to Brisbane, Melbourne, QLD or VIC.</div>
+        <div class="note-item"><div class="flag"><span>2</span></div>Full working rights in Australia through 2030, no restrictions.</div>
+        <div class="note-item"><div class="flag"><span>3</span></div>Native Cantonese speaker, professional working proficiency in Mandarin.</div>
+        <div class="note-item"><div class="flag"><span>4</span></div>Current driver's licence and White Card.</div>
+        <div class="note-item"><div class="flag"><span>5</span></div>UNSW Rocketry Team alum — low and mid-power rocket development in OpenRocket.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="divider reveal">
+      <span class="num">02</span><span class="label">EXPERIENCE</span><span class="line"></span><span class="tick"></span>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-meta"><div class="tl-date">JUL 2026 — PRESENT</div><div class="tl-loc">SYDNEY, NSW</div></div>
+        <div>
+          <div class="tl-role">Service Engineer</div>
+          <div class="tl-org">Noritsu Koki Co., Ltd. — Full-time</div>
+          <ul class="tl-list">
+            <li>Diagnose mechanical, electrical and software faults on commercial imaging systems through systematic root-cause analysis.</li>
+            <li>Install, commission and calibrate hardware on site, and run preventative maintenance schedules.</li>
+            <li>Track performance trends and turn them into corrective actions, with technical reports customers actually read.</li>
+            <li>Coordinate parts, repairs and maintenance directly with customers.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-meta"><div class="tl-date">SEP 2025 — APR 2026</div><div class="tl-loc">SYDNEY, NSW</div></div>
+        <div>
+          <div class="tl-role">Cabin Engineer (Design &amp; Drafting)</div>
+          <div class="tl-org">Qantas Airways — Fixed Term</div>
+          <ul class="tl-list">
+            <li>Produced CAD for cabin reconfigurations and aircraft modifications in Draftsight and SolidWorks.</li>
+            <li>Managed concurrent documentation across PDM and BOM updates under formal version control.</li>
+            <li>Applied CASA/EASA-compliant revision control across every release.</li>
+            <li>Worked across engineering, maintenance and planning teams to resolve design conflicts before they reached the hangar.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-meta"><div class="tl-date">JUN 2024 — SEP 2024</div><div class="tl-loc">PERTH, WA</div></div>
+        <div>
+          <div class="tl-role">Assistant Engineer (CAD Operator)</div>
+          <div class="tl-org">Metwest Steel Pty Ltd — Internship</div>
+          <ul class="tl-list">
+            <li>Produced fabrication drawings in AutoCAD, SolidWorks and Tekla Structures, applying GD&amp;T throughout.</li>
+            <li>Ran a root-cause analysis on 3D-printing parameters and logged production data via Excel macros.</li>
+            <li>Coordinated between engineering, fabrication and site teams, including on-site measurement work.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="divider reveal">
+      <span class="num">03</span><span class="label">FEATURED WORK</span><span class="line"></span><span class="tick"></span>
+    </div>
+    <div class="work-grid">
+
+      <div class="card reveal">
+        <div class="card-head"><span>THESIS</span><span>M = 3.0</span></div>
+        <h3>Supersonic bluff body wake dynamics</h3>
+        <p>High-fidelity compressible-flow CFD of a bluff body wake at Mach 3, with structured mesh refinement and spectral/statistical post-processing in MATLAB. Detached Eddy Simulation reduced predicted wake thickness by 34.5% against baseline turbulence models, benchmarked against literature and experimental data.</p>
+        <div class="tags"><span class="tag">ANSYS Fluent</span><span class="tag">MATLAB</span><span class="tag">DES / RANS</span></div>
+        <a class="card-link" href="https://brand0nyuen.wixsite.com/portfolio/portfolio-collections/my-portfolio/graduation-thesis" target="_blank" rel="noopener">View full write-up <svg viewBox="0 0 12 12" fill="none"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" stroke-width="1.3"/></svg></a>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-head"><span>AERO DESIGN</span><span>PART 23</span></div>
+        <h3>Kit-plane aircraft design</h3>
+        <p>Full-aircraft design study for a two-seat kit-plane, from 2D/3D lift-drag simulation in Xfoil, XFLR5 and Flow5 through to stability analysis, weight and balance, and cockpit ergonomics — held to CASA/FAA Part 23 compliance throughout.</p>
+        <div class="tags"><span class="tag">Xfoil</span><span class="tag">XFLR5 / Flow5</span><span class="tag">MATLAB</span></div>
+        <a class="card-link" href="https://brand0nyuen.wixsite.com/portfolio/portfolio-collections/my-portfolio/light-aircraft-design-kit-plane" target="_blank" rel="noopener">View full write-up <svg viewBox="0 0 12 12" fill="none"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" stroke-width="1.3"/></svg></a>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-head"><span>QANTAS</span><span>FLEET</span></div>
+        <h3>Cabin reconfiguration drafting</h3>
+        <p>Production CAD and documentation for cabin reconfigurations and aircraft modifications, run under CASA/EASA-compliant revision control with concurrent PDM and BOM management across a live fleet.</p>
+        <div class="tags"><span class="tag">Draftsight</span><span class="tag">SolidWorks</span><span class="tag">PDM / BOM</span></div>
+        <a class="card-link" href="https://brand0nyuen.wixsite.com/portfolio/portfolio-collections/my-portfolio/qantas" target="_blank" rel="noopener">View full write-up <svg viewBox="0 0 12 12" fill="none"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" stroke-width="1.3"/></svg></a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BEYOND -->
+  <section id="beyond">
+    <div class="divider reveal">
+      <span class="num">04</span><span class="label">BEYOND THE BENCH</span><span class="line"></span><span class="tick"></span>
+    </div>
+    <div class="beyond-wrap">
+      <div class="beyond-text reveal">
+        <h2 class="section-title">Hardware I take apart for fun</h2>
+        <p>Outside of scoped work, I keep a bench of salvaged parts — stepper motors, driver boards, linear rails and optical encoders pulled from decommissioned printers — and I'm teaching myself to control them properly, starting with Arduino in C++ and Python for the analysis side.</p>
+        <p>It's the same instinct that had me building low- and mid-power rockets in OpenRocket with the UNSW Rocketry Team: I like hardware I can take apart, wire up, and watch fail before I understand why.</p>
+      </div>
+      <div class="beyond-diagram reveal" aria-hidden="true">
+        <svg viewBox="0 0 400 220" fill="none">
+          <rect x="0.5" y="0.5" width="399" height="219" stroke="var(--hairline-strong)"/>
+          <rect x="40" y="80" width="60" height="60" fill="none" stroke="var(--ink)" stroke-width="1.3"/>
+          <circle cx="70" cy="110" r="12" fill="none" stroke="var(--blueprint)" stroke-width="1.3"/>
+          <line x1="100" y1="110" x2="170" y2="110" stroke="var(--ink)" stroke-width="1.3"/>
+          <rect x="170" y="95" width="46" height="30" fill="none" stroke="var(--ink)" stroke-width="1.3"/>
+          <line x1="216" y1="110" x2="270" y2="110" stroke="var(--ink)" stroke-width="1.3"/>
+          <rect x="270" y="60" width="90" height="100" fill="none" stroke="var(--blueprint)" stroke-width="1.3" stroke-dasharray="3 3"/>
+          <line x1="60" y1="180" x2="360" y2="180" stroke="var(--titanium)" stroke-width="1"/>
+          <line x1="60" y1="174" x2="60" y2="186" stroke="var(--titanium)" stroke-width="1"/>
+          <line x1="360" y1="174" x2="360" y2="186" stroke="var(--titanium)" stroke-width="1"/>
+          <text x="140" y="196" font-family="IBM Plex Mono" font-size="10" fill="var(--titanium)">SALVAGE RIG — HOMING SEQUENCE</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="divider reveal">
+      <span class="num">05</span><span class="label">CONTACT</span><span class="line"></span><span class="tick"></span>
+    </div>
+    <div class="contact-wrap reveal">
+      <h2>Let's talk about the work</h2>
+      <p class="contact-sub">Open to roles across aerospace, mechanical design, manufacturing and field service — happy to talk specifics.</p>
+      <div class="cta-row">
+        <a class="btn primary" href="mailto:yuenzulniro25@gmail.com">Email Brandon</a>
+        <a class="btn" href="https://www.linkedin.com/in/tsan-hoi-zulniro-brandon-yuen-83b472233" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        <a class="btn ghost" href="resume.pdf" target="_blank" rel="noopener">Download résumé</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 BRANDON YUEN</span>
+    <span>SHEET 1/1 — REV 2026.08 — SYDNEY, AUSTRALIA</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var targets = document.querySelectorAll('.reveal, .divider');
+  if(!('IntersectionObserver' in window)){
+    targets.forEach(function(t){ t.classList.add('in-view'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  targets.forEach(function(t){ io.observe(t); });
+})();
+</script>
+
+</body>
+</html>
