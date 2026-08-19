@@ -2,4 +2,5 @@ media/Photography/30XT1529.RAF filter=lfs diff=lfs merge=lfs -text
 Portfolio[[:space:]]AddOns/Thesis[[:space:]]Photos/hero-velocity.mpeg filter=lfs diff=lfs merge=lfs -text
 media/AERO9500[[:space:]]Photos/GMATsim[[:space:]]-[[:space:]]Made[[:space:]]with[[:space:]]Clipchamp.zip filter=lfs diff=lfs merge=lfs -text
 Portfolio[[:space:]]AddOns/AERO9500[[:space:]]Photos/GMATsim[[:space:]]-[[:space:]]Made[[:space:]]with[[:space:]]Clipchamp.mp4 filter=lfs diff=lfs merge=lfs -text
+/media/hero-velocity.mpeg filter=lfs diff=lfs merge=lfs -text
 *.webp !text !filter !merge !diff
