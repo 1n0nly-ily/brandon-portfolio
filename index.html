@@ -291,6 +291,29 @@ h1 em{ font-style:normal; color:var(--amber-bright); }
 .tl-list li{ font-size:14px; color:var(--text-secondary); padding-left:16px; position:relative; }
 .tl-list li::before{ content:"—"; position:absolute; left:0; top:0; color:var(--amber); }
 
+/* ---------- Core Skills ---------- */
+.skills-section { padding: 120px 0;position: relative;}
+.section-heading {margin-bottom: 60px;}
+.section-heading .eyebrow {font-family: monospace; font-size: 0.75rem; letter-spacing: 0.18em;opacity: 0.55; margin-bottom: 12px;}
+.section-heading h2 {margin: 0; font-size: clamp(2rem, 5vw, 4rem); line-height: 1; letter-spacing: -0.04em;}
+
+.skills-grid {  display: grid;  grid-template-columns: repeat(2, 1fr);  gap: 1px;  background: rgba(255,255,255,0.12);  border: 1px solid rgba(255,255,255,0.12);}
+.skill-card {  position: relative;  padding: 35px;  min-height: 280px;  background: #030407;  transition: transform 0.25s ease, background 0.25s ease;}
+.skill-card:hover {  background: #080b10;}
+.skill-number {display: block;font-family: monospace;font-size: 0.7rem;opacity: 0.4;margin-bottom: 45px;}
+.skill-card h3 {margin: 0 0 12px;  font-size: 1.4rem; color:var(--amber)}
+.skill-card p {  max-width: 520px;  line-height: 1.6;  opacity: 0.65;  margin-bottom: 25px;}
+.skill-tags {  display: flex;  flex-wrap: wrap;  gap: 7px;}
+.skill-tags span {  font-family: monospace;  font-size: 0.7rem;  padding: 6px 9px;  border: 1px solid rgba(255,255,255,0.15);  opacity: 0.7;}
+
+/* Mobile */
+
+@media (max-width: 700px) {  
+  .skills-section {    padding: 80px 0;  }
+  .skills-grid {    grid-template-columns: 1fr;  }
+  .skill-card {    min-height: auto;    padding: 28px;  }
+}
+
 /* ---------- work: flagship case study ---------- */
 
 .flagship{
@@ -353,6 +376,7 @@ h1 em{ font-style:normal; color:var(--amber-bright); }
 .card:hover .card-link svg{ transform:translate(2px,-2px); }
 .card-diagram{ width:100%; aspect-ratio:16/9; margin-bottom:16px; border:1px solid var(--hairline); border-radius:4px; overflow:hidden; background:var(--bg-1); }
 .card-diagram svg{ width:100%; height:100%; display:block; }
+.card-diagram video {width: 100%; height: 100%; object-fit: cover; display: block;}
 
 /* ---------- beyond ---------- */
 
@@ -399,13 +423,15 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
   <div class="hero-bgwrap" id="hero-bgwrap">
     <div class="hero-media">
       <video autoplay muted loop playsinline poster="media/hero-poster.jpg" aria-hidden="true">
-        <source src="media/hero-velocity.webm" type="video/webm">
-        <source src="media/hero-velocity.mpeg" type="video/mpeg">
+        <source src="media/hero-velocity.mp4" type="video/mp4">
       </video>
     </div>
     <div class="hero-content">
       <div class="hero-eyebrow">SYDNEY, AU — OPEN TO RELOCATION</div>
-      <h1>Built to hold up <em>under scrutiny</em>.</h1>
+      <h1>Explore. Build. <em>Understand</em>.</h1>
+      <p class="hero-subtitle">
+          UNSW Graduate Aerospace Engineer
+      </p>
       <div class="cta-row">
         <a class="btn primary" href="mailto:yuenzulniro25@gmail.com">Email Brandon</a>
         <a class="btn" href="https://www.linkedin.com/in/tsan-hoi-zulniro-brandon-yuen-83b472233" target="_blank" rel="noopener">Connect on LinkedIn</a>
@@ -425,7 +451,8 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
       <div class="portrait-tag">SYDNEY, NSW — 2026</div>
     </div>
     <div class="portrait-text" id="portrait-text">
-      <p>BE (Honours) Aerospace Engineering graduate from UNSW, currently diagnosing and repairing precision hardware at Noritsu Koki. Previously drafted cabin modifications at Qantas and fabrication drawings at Metwest Steel. I like taking a system apart to understand why it works, then documenting it so somebody else can trust it too.</p>
+      <p>I'm an Aerospace Engineering (Honours) graduate from UNSW, currently working with precision equipment at <b>Noritsu Koki</b>. I've previously worked on aircraft cabin modifications at <b>Qantas</b> and fabrication drawings at <b>Metwest Steel</b>. 
+         I'm naturally curious and tend to learn by getting stuck in. Taking things apart, asking too many questions, and figuring out how they work. I'm particularly drawn to aircraft, propulsion, space and the engineering problems that aren't immediately obvious.</p>
     </div>
   </div>
 </section>
@@ -438,8 +465,8 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
     <div class="about-grid">
       <div class="about-text reveal">
         <h2 class="section-title">A generalist by design</h2>
-        <p>I graduated from UNSW with a <strong>Bachelor of Engineering (Honours) in Aerospace Engineering</strong>, Class 2:1, Distinction WAM. My thesis modelled supersonic wake dynamics behind a bluff body at Mach 3, and it taught me the lesson every job since has reinforced: a result is only as good as the process that produced it, and only as useful as the report that explains it.</p>
-        <p>I move comfortably between CAD systems, CFD solvers, and a multimeter, and I'd rather understand a system fully — before and after I touch it — than treat any tool as a black box. I'm currently expanding that range at Noritsu Koki, where fault-finding is a daily exercise in narrowing possibility spaces down to root cause.</p>
+        <p>I graduated from UNSW with a <strong>Bachelor of Engineering (Honours) in Aerospace Engineering</strong>, Class 2:1, Distinction WAM. My thesis investigated supersonic wake dynamics behind a bluff body at Mach 3, using CFD and MATLAB to understand how the flow developed and why it behaved the way it did.</p>
+        <p>I am naturally curious about how things work, and I've ended up exploring that through aircraft, CAD, CFD, manufacturing and hands-on troubleshooting. I've gone from producing fabrication drawings at <strong>Metwest Steel</strong>, to designing aircraft cabin modifications at <strong>Qantas</strong>, to fault-finding precision equipment at <strong>Noritsu Koki</strong>. I enjoy moving between the computer and the physical thing. Modelling something, building or working with it, testing it, and then figuring out what went wrong when reality doesn't quite match the model.</p>
       </div>
       <div class="notes-panel reveal d1">
         <div class="notes-title">GENERAL NOTES</div>
@@ -456,18 +483,24 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="wrap">
-    <div class="divider reveal"><span class="num">02</span><span class="label">EXPERIENCE</span><span class="line"></span></div>
+    <div class="divider reveal"><span class="num">02</span><span class="label">PROFESSIONAL  EXPERIENCE</span><span class="line"></span></div>
     <div class="timeline">
       <div class="tl-item reveal">
         <div class="tl-meta"><div class="tl-date">JUL 2026 — PRESENT</div><div class="tl-loc">SYDNEY, NSW</div></div>
         <div>
           <div class="tl-role">Service Engineer</div>
-          <div class="tl-org">Noritsu Koki Co., Ltd. — Full-time</div>
+          <div class="tl-org">Noritsu Koki Co., Ltd. — Full-time Permanent</div>
           <ul class="tl-list">
-            <li>Diagnose mechanical, electrical and software faults on commercial imaging systems through systematic root-cause analysis.</li>
-            <li>Install, commission and calibrate hardware on site, and run preventative maintenance schedules.</li>
-            <li>Track performance trends and turn them into corrective actions, with technical reports customers actually read.</li>
-            <li>Coordinate parts, repairs and maintenance directly with customers.</li>
+            <li>Diagnosed mechanical, electrical and software faults on commercial imaging systems through systematic <b>root-cause analysis (RCA)</b>.</li>
+            <li>Performed preventative maintenance to <b>maximize equipment reliability</b> and <b>operational performance</b>.</li>
+            <li>Installed, commission and calibrate hardware on site, and run preventative maintenance schedules.</li>
+            <li>Analyzed equipment performance and implemented corrective actions to <b>improve system efficiency</b>. </li>
+            <li>Interpreted <b>technical manuals, wiring diagrams and engineering documentation</b> to support fault diagnosis.</li>
+            <li>Managed <b>customer service</b> activities while coordinating repairs, spare parts and maintenance schedules. </li>
+            <li>Produced detailed technical reports and communicated engineering solutions with customers and internal teams. </li>
+            <li>Assisted with <b>company relocation</b>, including physical labor, stock take, documentation, and logistics coordination. </li>
+            <li><b>Supported IT infrastructure</b> setup, including <b>LAN cabling</b>, <b>network connectivity</b>, and <b>workstation installation</b>. </li>
+            <li><b>Adapted quickly</b> to multidisciplinary tasks, demonstrating <b>initiative</b> and a <b>willingness to learn</b> new technical processes. </li>
           </ul>
         </div>
       </div>
@@ -475,12 +508,15 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
         <div class="tl-meta"><div class="tl-date">SEP 2025 — APR 2026</div><div class="tl-loc">SYDNEY, NSW</div></div>
         <div>
           <div class="tl-role">Cabin Engineer (Design &amp; Drafting)</div>
-          <div class="tl-org">Qantas Airways — Fixed Term</div>
+          <div class="tl-org">Qantas Airways — Fixed Term Contract</div>
           <ul class="tl-list">
-            <li>Produced CAD for cabin reconfigurations and aircraft modifications in Draftsight and SolidWorks.</li>
-            <li>Managed concurrent documentation across PDM and BOM updates under formal version control.</li>
-            <li>Applied CASA/EASA-compliant revision control across every release.</li>
-            <li>Worked across engineering, maintenance and planning teams to resolve design conflicts before they reached the hangar.</li>
+            <li>Produced <b>CAD</b> for cabin reconfigurations and aircraft modifications in <b>Draftsight</b> and <b>SolidWorks</b>.</li>
+            <li>Managed concurrent design documentation workflows across <b>PDM</b> and <b>BOM</b> updates under formal version control.</li>
+            <li>Supported aircraft modification projects by maintaining accurate <b>technical records</b> throughout asset lifecycle.</li>
+            <li>Applied CASA/EASA-compliant revision control across every release to ensure engineering accuracy and minimise implementation risks.</li>
+            <li>Collaborated with <b>cross-functional teams</b> to resolve design conflicts and support efficient modification delivery ensuring ensure seamless integration of design changes.</li>
+            <li>Reviewed & translated technical requirements into production-ready drawings and installation documentation.</li>
+            <li>Contributed to <b>continuous improvement</b> of engineering documentation processes with <b>(Templates | Excel Macros)</b>.</li>
           </ul>
         </div>
       </div>
@@ -488,17 +524,110 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
         <div class="tl-meta"><div class="tl-date">JUN 2024 — SEP 2024</div><div class="tl-loc">PERTH, WA</div></div>
         <div>
           <div class="tl-role">Assistant Engineer (CAD Operator)</div>
-          <div class="tl-org">Metwest Steel Pty Ltd — Internship</div>
+          <div class="tl-org">Metwest Steel Pty Ltd — 3 months structured Internship</div>
           <ul class="tl-list">
-            <li>Produced fabrication drawings in AutoCAD, SolidWorks and Tekla Structures, applying GD&amp;T throughout.</li>
-            <li>Ran a root-cause analysis on 3D-printing parameters and logged production data via Excel macros.</li>
-            <li>Coordinated between engineering, fabrication and site teams, including on-site measurement work.</li>
+            <li>Produced fabrication drawings in <b>AutoCAD</b>, <b>SolidWorks</b> and <b>Tekla Structures</b>, applying GD&amp;T throughout.</li>
+            <li>Evaluated <b>20+</b> 3D resin printing parameters and logged production data through <b>root cause analysis (RCA)</b> to identify controlling variables to <b>optimise</b> 3D printing quality & efficiency.</li>
+            <li>Coordinated between engineering, fabrication and site teams, to resolve design discrepencies, production inefficiencies to improve workflow.</li>
+            <li>Utilized <b>Excel & Excel Macros</b> for documentation, tracking, and improving production and material usage efficiency.</li>
+            <li>Conducted site measurements and incorporated fabrication and installation constraints into design updates.</li>
+            <li>Gained <b>hands-on</b> exposure to fabrication processes, strengthened understanding of manufacturability.</li>
+            <li>Developed and modified <b>Tekla Structures Models</b> using engineering, architectural, and structural drawings.</li>
           </ul>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+
+<!-- CORE SKILLS -->
+<section class="skills-section" id="skills">
+  <div class="wrap">
+
+    <div class="section-heading">
+      <p class="eyebrow">CORE TECHNICAL SKILLS</p>
+      <h2>What I can work with.</h2>
+    </div>
+
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <span class="skill-number">01</span>
+        <h3>CAD & Design</h3>
+        <p>
+          3D modelling, engineering drawings, aircraft cabin layouts,
+          fabrication drawings and design documentation.
+        </p>
+        <div class="skill-tags">
+          <span>SolidWorks</span>
+          <span>Inventor</span>
+          <span>Rhino</span>
+          <span>AutoCAD</span>
+          <span>DraftSight</span>
+          <span>Tekla Structures</span>
+          <span>CatiaV5</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <span class="skill-number">02</span>
+        <h3>Engineering Simulation</h3>
+        <p>
+          Computational fluid dynamics, aerodynamic analysis and
+          post-processing of large simulation datasets, structural analysis, weight and balance,
+          design verification and interpreting technical data.
+        </p>
+        <div class="skill-tags">
+          <span>ANSYS CFD</span>
+          <span>FEA</span>
+          <span>Xfoil</span>
+          <span>XFLR5</span>
+          <span>Flow5</span>
+          <span>OpenFOAM</span>
+          <span>OpenRocket</span>
+          <span>Salome</span>
+          <span>MS Excel</span>
+          <span>C Code</span>
+          <span>MATLAB</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <span class="skill-number">04</span>
+        <h3>Technical Documentation</h3>
+        <p>
+          Engineering drawings, BOMs, revision control, technical reports,
+          manufacturing documentation and scope definition.
+        </p>
+        <div class="skill-tags">
+          <span>BOM</span>
+          <span>SolidWorks PDM</span>
+          <span>MS Excel Macros</span>
+          <span>MS Word</span>
+          <span>MS PowerPoint</span>
+          <span>Microsoft Teams</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <span class="skill-number">05</span>
+        <h3>Hands-on Engineering</h3>
+        <p>
+          Fault finding, equipment troubleshooting, installation,
+          measurement and working directly with physical systems.
+        </p>
+        <div class="skill-tags">
+          <span>Diagnostics</span>
+          <span>Reactive Troubleshooting</span>
+          <span>RCA</span>
+          <span>FMEA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- WORK -->
 <section id="work">
@@ -509,9 +638,9 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
     <div class="flagship reveal">
       <div class="flagship-head">
         <span class="tagline">GRADUATION THESIS — SCHOOL OF MECHANICAL &amp; MANUFACTURING ENGINEERING, UNSW</span>
-        <span class="tagline">MACH 3.0</span>
+        <span class="tagline">RANS & DES MACH 3.0 SIMULATION</span>
       </div>
-      <h3>Supersonic bluff body wake dynamics</h3>
+      <h3>Supersonic Bluff Body Wake Dynamics</h3>
       <p class="desc">High-fidelity compressible-flow CFD of a bluff body wake at Mach 3, with structured mesh refinement and spectral/statistical post-processing in MATLAB. Detached Eddy Simulation resolved the recirculation and vortex-shedding structure at a fidelity RANS couldn't reach, reducing predicted wake thickness by 34.5% against baseline turbulence models and holding up against literature and experimental benchmarks.</p>
       <div class="tags"><span class="tag">ANSYS Fluent</span><span class="tag">MATLAB</span><span class="tag">DES / RANS</span><span class="tag">Compressible CFD</span></div>
 
@@ -541,7 +670,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           <figure><img src="media/thesis/injector-comparison.png" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy"></figure>
           <figcaption>
             <div class="plate-label">Geometry study — injector trailing edge</div>
-            <div class="plate-text">Swapping a triangular trailing edge for a modified strut halves the wake width for a near-identical subsonic core. A reminder that in supersonic flow, small geometric changes at the trailing edge move the whole downstream picture.</div>
+            <div class="plate-text">Swapping a triangular trailing edge for a modified strut halves the wake width for a near-identical subsonic core. A reminder that in supersonic flow, small geometric changes at the trailing edge changes the whole downstream picture.</div>
           </figcaption>
         </div>
       </div>
@@ -551,19 +680,38 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
 
     <div class="work-grid">
       <div class="card reveal">
-        <div class="card-head"><span>AERO DESIGN</span><span>PART 23</span></div>
+        <div class="card-head"><span>AERO4110 DESIGN</span><span>PART 23</span></div>
+
+        <div class="card-diagram">
+          <video autoplay muted loop playsinline>
+            <source src="media/AERO4110 Photos/AircraftAni2 - Made with Clipchamp.mp4" type="video/mp4" loading="lazy"></source>
+          </video>
+        </div>
+
         <div class="card-diagram" aria-hidden="true">
           <svg viewBox="0 0 400 225" fill="none">
             <path d="M20,150 L380,150" stroke="var(--hairline-strong)" stroke-width="1"/>
-            <path d="M40,150 C120,150 150,100 200,100 C250,100 280,150 360,150" stroke="var(--amber)" stroke-width="1.4"/>
-            <path d="M40,150 C120,150 150,175 200,175 C250,175 280,150 360,150" stroke="var(--amber)" stroke-width="1.4" opacity="0.55"/>
-            <line x1="200" y1="60" x2="200" y2="190" stroke="var(--ice)" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>
+            <path d="M40,150 C55,128 95,115 145,116 C205,117 275,132 360,150" fill="none" stroke="var(--amber)" stroke-width="1.4"/>
+            <path d="M40,150 85,166 145,169 205,163 C270,157 320,153 360,150" fill="none" stroke="var(--amber)" stroke-width="1.4" opacity="0.55"/>
+            <path  d="M20 130 C80 130 120 130 180 130"  stroke="var(--amber)"  stroke-width="0.8"  opacity="0.3"  stroke-dasharray="4 5"  fill="none"/>
+            <path  d="M20 170 C80 170 120 170 180 170"  stroke="var(--amber)"  stroke-width="0.8"  opacity="0.3"  stroke-dasharray="4 5"  fill="none"/>
+            <line x1="0" y1="0"           x2="240"            y2 ="225
+            stroke="var(--ice)" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>
             <text x="205" y="72" font-family="IBM Plex Mono" font-size="9" fill="var(--text-tertiary)">CHORD</text>
           </svg>
         </div>
+        
         <h3>Kit-plane aircraft design</h3>
         <p>Full-aircraft design study for a two-seat kit-plane, from 2D/3D lift-drag simulation in Xfoil, XFLR5 and Flow5 through to stability analysis, weight and balance, and cockpit ergonomics — held to CASA/FAA Part 23 compliance throughout.</p>
         <div class="tags"><span class="tag">Xfoil</span><span class="tag">XFLR5 / Flow5</span><span class="tag">MATLAB</span></div>
+
+        <div class="plate">
+          <figure><img src="media/thesis/injector-comparison.png" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy"></figure>
+          <figcaption>
+            <div class="plate-label">Geometry study — injector trailing edge</div>
+            <div class="plate-text">Swapping a triangular trailing edge for a modified strut halves the wake width for a near-identical subsonic core. A reminder that in supersonic flow, small geometric changes at the trailing edge changes the whole downstream picture.</div>
+          </figcaption>
+        </div>
         <a class="card-link" href="https://brand0nyuen.wixsite.com/portfolio/portfolio-collections/my-portfolio/light-aircraft-design-kit-plane" target="_blank" rel="noopener">View full write-up <svg viewBox="0 0 12 12" fill="none"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" stroke-width="1.3"/></svg></a>
       </div>
 
