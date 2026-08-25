@@ -499,6 +499,9 @@ h1 em{ font-style:normal; color:var(--amber-bright); }
 .mini-card-info{ padding:16px; }
 .mini-card-info h4{  font-size:15px; font-weight:600; margin:0 0 6px;}
 .mini-card-info p{  font-size:12.5px; color:var(--text-secondary); line-height:1.55; margin:0;}
+.grid-card img {position: relative; overflow: hidden;}
+.grid-card-image img {width: 100%;height: 100%;object-fit: cover;filter: grayscale(100%);}
+.grid-card-image::after {content: "";position: absolute;inset: 0;background: rgba(30, 55, 75, 0.35);mix-blend-mode: multiply;pointer-events: none;}
 
 /* ============================================================
    PHOTOGRAPHY — continuous panning marquee + static gallery
@@ -630,8 +633,10 @@ h1 em{ font-style:normal; color:var(--amber-bright); }
 .note-date{  font-family:var(--font-mono); font-size:10px; color:var(--text-tertiary);}
 .note-title{ font-size:18px; font-weight:600; margin:0 0 8px; }
 .note-entry p{  font-size:14px; line-height:1.7; color:var(--text-secondary); margin:0;  max-width:62ch;}
-.note-sketch{  margin-top:14px; border:1px solid var(--hairline); border-radius:4px;  max-width:280px; aspect-ratio:4/3; overflow:hidden;}
+/*.note-sketch{  margin-top:14px; border:1px solid var(--hairline); border-radius:4px;  max-width:280px; aspect-ratio:4/3; overflow:hidden;}*/
 .note-sketch img{ width:100%; height:100%; object-fit:cover; filter:grayscale(30%); }
+.note-sketch {  margin-top: 14px;  display: grid;  grid-template-columns: repeat(2, 1fr);  gap: 12px;  width: 30;}
+.note-sketch .ph {  width: 100%;  height: auto;  display: block;  border: 1px solid var(--hairline);  border-radius: 4px;  filter: grayscale(30%);}
 
 /* ---------- beyond ---------- */
 
@@ -779,11 +784,11 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
       <!-- ========================================= -->
 
       <div class="portfolio-index reveal d1">
-        <div class="intro-label">PORTFOLIO / SECTIONS</div>
+        <div class="intro-label">CONTENT SECTIONS</div>
         <div class="portfolio-grid">
           <!-- 01 -->
           <a href="#research-thesis" class="portfolio-tile">
-            <img src="media/thesis/Pic11.png" alt="Research Thesis" loading="lazy">
+            <img src="media/Grid Photos/3.jpg" alt="Research Thesis" loading="lazy">
             <div class="portfolio-overlay">
               <span class="portfolio-number"> 01 </span>
               <span class="portfolio-name">Research Thesis</span>
@@ -791,7 +796,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </a>
           <!-- 02 --> <!--Edited-->
           <a href="#cfd" class="portfolio-tile">
-            <img src="media/CFD/Density.png" alt="Computational Fluid Dynamics" loading="lazy">
+            <img src="media/Grid Photos/15.jpg" alt="Computational Fluid Dynamics" loading="lazy">
             <div class="portfolio-overlay">
               <span class="portfolio-number">02 </span>
               <span class="portfolio-name">CFD </span>
@@ -800,7 +805,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           <!-- 03 -->
           <a href="#qantas" class="portfolio-tile">
 
-            <img src="media/portfolio-covers/qantas.jpg" alt="Qantas Engineering" loading="lazy">
+            <img src="media/Grid Photos/8.jpg" alt="Qantas Engineering" loading="lazy">
             <div class="portfolio-overlay">
               <span class="portfolio-number">03 </span>
               <span class="portfolio-name">QANTAS</span>
@@ -808,7 +813,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </a>
           <!-- 04 -->
           <a href="#cad" class="portfolio-tile">
-            <img src="media/portfolio-covers/cad.jpg" alt="CAD / DESIGN" loading="lazy">
+            <img src="media/Grid Photos/13.jpg" alt="CAD / DESIGN" loading="lazy">
             <div class="portfolio-overlay">
               <span class="portfolio-number">04</span>
               <span class="portfolio-name">CAD / DESIGN</span>
@@ -816,15 +821,15 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </a>
           <!-- 05 -->
           <a href="#aero4110" class="portfolio-tile">
-            <img src="media/portfolio-covers/thesis.jpg"alt="Projects" loading="lazy">
+            <img src="media/Grid Photos/4.jpg"alt="Projects" loading="lazy">
             <div class="portfolio-overlay">
               <span class="portfolio-number">05</span>
-              <span class="portfolio-name">Projects</span>
+              <span class="portfolio-name">Selected Works</span>
             </div>
           </a>
           <!-- 06 -->
           <a href="#photography" class="portfolio-tile">
-            <img src="media/portfolio-covers/manufacturing.jpg" alt= "Photography"loading="lazy">
+            <img src="media/Grid Photos/2.jpg" alt= "Photography"loading="lazy">
             <div class="portfolio-overlay">
               <span class="portfolio-number">06</span>
               <span class="portfolio-name">Photographs</span>
@@ -832,7 +837,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </a>
           <!-- 07 -->
           <a href="#music" class="portfolio-tile">
-            <img src="media/portfolio-covers/service.jpg" alt="Music Production"loading="lazy">
+            <img src="media/Grid Photos/14.jpg" alt="Music Production"loading="lazy">
             <div class="portfolio-overlay">
               <span class="portfolio-number">07</span>
               <span class="portfolio-name">Music</span>
@@ -840,7 +845,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </a>
           <!-- 08 -->
           <a href="#notepad" class="portfolio-tile">
-            <img src="media/portfolio-covers/projects.jpg" alt="Notepad" loading="lazy">
+            <img src="media/Grid Photos/7.jpg" alt="Notepad" loading="lazy">
             <div class="portfolio-overlay">
               <span class="portfolio-number">08</span>
               <span class="portfolio-name">Notepad</span>
@@ -848,7 +853,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </a>
           <!-- 09 -->
           <a href="#contact" class="portfolio-tile">
-            <img src="media/portfolio-covers/contact.jpg"alt="Contact"loading="lazy">
+            <img src="media/Grid Photos/1.jpg"alt="Contact"loading="lazy">
             <div class="portfolio-overlay">
               <span class="portfolio-number">09</span>
               <span class="portfolio-name">CONTACT</span>
@@ -1410,36 +1415,36 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
   <div class="marquee-row" aria-hidden="true">
     <div class="marquee-track">
       <img class="ph" src="media/Photography/30XT0556.JPG" alt="">
-      <img class="ph" src="media/Photography/.jpg" alt="">
+      <img class="ph" src="media/Photography/30XT1963(3).jpg" alt="">
       <img class="ph" src="media/Photography/30XT3426.JPG" alt="">
-      <img class="ph" src="media/Photography/p4.jpg" alt="">
-      <img class="ph" src="media/Photography/p5.jpg" alt="">
-      <img class="ph" src="media/Photography/p6.jpg" alt="">
+      <img class="ph" src="media/Photography/30XT0551.jpg" alt="">
+      <img class="ph" src="media/Photography/30XT1497(1).jpg" alt="">
+      <img class="ph" src="media/Photography/30XT7796.JPG" alt="">
       <!-- duplicate set — required for the seamless CSS loop, keep identical -->
-      <img class="ph" src="media/Photography/p1.jpg" alt="">
-      <img class="ph" src="media/Photography/p2.jpg" alt="">
-      <img class="ph" src="media/Photography/p3.jpg" alt="">
-      <img class="ph" src="media/Photography/p4.jpg" alt="">
-      <img class="ph" src="media/Photography/p5.jpg" alt="">
-      <img class="ph" src="media/Photography/p6.jpg" alt="">
+      <img class="ph" src="media/Photography/30XT0556.JPG" alt="">
+      <img class="ph" src="media/Photography/30XT1963(3).jpg" alt="">
+      <img class="ph" src="media/Photography/30XT3426.JPG" alt="">
+      <img class="ph" src="media/Photography/30XT0551.jpg" alt="">
+      <img class="ph" src="media/Photography/30XT1497(1).jpg" alt="">
+      <img class="ph" src="media/Photography/30XT7796.JPG" alt="">
     </div>
   </div>
 
   <div class="marquee-row reverse" aria-hidden="true">
     <div class="marquee-track">
       <img class="ph" src="media/Photography/30XT1281(3).jpg" alt="">
-      <img class="ph" src="media/Photography/p8.jpg" alt="">
-      <img class="ph" src="media/Photography/p9.jpg" alt="">
-      <img class="ph" src="media/Photography/p10.jpg" alt="">
-      <img class="ph" src="media/Photography/p1.jpg" alt="">
-      <img class="ph" src="media/Photography/p2.jpg" alt="">
+      <img class="ph" src="media/Photography/30XT1051.jpg" alt="">
+      <img class="ph" src="media/Photography/30XT6506.jpg" alt="">
+      <img class="ph" src="media/Photography/30XT0863.jpg" alt="">
+      <img class="ph" src="media/Photography/30XT4267.jpg" alt="">
+      <img class="ph" src="media/Photography/30XT9957.JPG" alt="">
       <!-- duplicate set -->
-      <img class="ph" src="media/Photography/p7.jpg" alt="">
-      <img class="ph" src="media/Photography/p8.jpg" alt="">
-      <img class="ph" src="media/Photography/p9.jpg" alt="">
-      <img class="ph" src="media/Photography/p10.jpg" alt="">
-      <img class="ph" src="media/Photography/p1.jpg" alt="">
-      <img class="ph" src="media/Photography/p2.jpg" alt="">
+      <img class="ph" src="media/Photography/30XT1281(3).jpg" alt="">
+      <img class="ph" src="media/Photography/30XT1051.jpg" alt="">
+      <img class="ph" src="media/Photography/30XT6506.jpg" alt="">
+      <img class="ph" src="media/Photography/30XT0863.jpg" alt="">
+      <img class="ph" src="media/Photography/30XT4267.jpg" alt="">
+      <img class="ph" src="media/Photography/30XT9957.JPG" alt="">
     </div>
   </div>
 
@@ -1450,15 +1455,15 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
     </div>
 
     <div class="photo-gallery reveal d1">
-      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT0462.JPG" alt=""></a>
+      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT0863.jpg" alt=""></a>
       <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT1281(3).jpg" alt=""></a>
       <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT1963(3).jpg" alt=""></a>
       <a class="photo-tile" href="#"><img class="ph" src="media/Photography/IMG_1696(2).JPG" alt=""></a>
-      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/g5.jpg" alt=""></a>
-      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/g6.jpg" alt=""></a>
-      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/g7.jpg" alt=""></a>
-      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/g8.jpg" alt=""></a>
-      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/g9.jpg" alt=""></a>
+      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT0551.jpg" alt=""></a>
+      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT1497(1).jpg" alt=""></a>
+      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT3426.jpg" alt=""></a>
+      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT1480.jpg" alt=""></a>
+      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT7796.JPG" alt=""></a>
     </div>
   </div>
 </section>
@@ -1567,7 +1572,8 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           below, not rigorous, just getting the geometry straight in my head.
         </p>
         <div class="note-sketch">
-          <img class="ph" src="media/Notepad/sketch-1.jpg" alt="">
+          <img class="ph" src="media/thesis/Pic14.png" alt="">
+          <img class="ph" src="media/thesis/Pic15.png" alt="">
         </div>
       </article>
 
@@ -1758,12 +1764,12 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
 })();
 
 //<!--============================================================
-//                            CONTACT
+//                            MUSIC PLAYER
 //    ============================================================ -->
 const TRACKS = [
-  { title: "Track One",   artist: "Brandon Yuen", src: "media/Music/track-1.mp3", cover: "media/Music/covers/track-1.jpg" },
-  { title: "Track Two",   artist: "Brandon Yuen", src: "media/Music/track-2.mp3", cover: "media/Music/covers/track-2.jpg" },
-  { title: "Track Three", artist: "Brandon Yuen", src: "media/Music/track-3.mp3", cover: "media/Music/covers/track-3.jpg" },
+  { title: "Winetfye",   artist: "Brandon Yuen", src: "media/Music Production/winetfyenb-flip.mp3", cover: "media/Music Production/2.jpg" },
+  { title: "Pianoflip",   artist: "Brandon Yuen", src: "media/Music Production/Pianoflip.mp3", cover: "media/Music Production/3.jpg" },
+  { title: "Pluggnb", artist: "Brandon Yuen", src: "media/Music Production/Twice_Fancy_Plug.mp3", cover: "media/Music Production/4.jpg" },
 ];
 
 (function initMusicPlayer(){
