@@ -676,6 +676,27 @@ h1 em{ font-style:normal; color:var(--amber-bright); }
 .contact-buttons { flex-direction: column; width: 100%; } 
 .contact-buttons .btn { width: 100%; justify-content: center; } }
 
+/* Prevents user selection and highlights on media elements */
+img, video, audio {  user-select: none;-webkit-user-select: none;/* Safari */ -moz-user-select: none;/* Firefox */-ms-user-select: none;/* IE/Edge */ /* Disables standard ghost-image dragging in most modern browsers */  -webkit-user-drag: none;}
+.image-container {  position: relative;  display: inline-block;}
+.image-container img {  display: block;  max-width: 100%;  height: auto;}
+
+.video-container video {  display: block;  max-width: 100%;  height: auto;}
+/* Specific Chrome tweak to hide the download button if controls accidentally show */
+video::-internal-media-controls-download-button {    display:none;}
+video::-webkit-media-controls-enclosure {    overflow:hidden;}
+
+/* This creates an invisible shield over the top of the photo */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 10;
+}
+
 /* ---------- footer ---------- */
 
 footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; padding:26px var(--edge) 34px; font-family:var(--font-mono); font-size:10.5px; color:var(--text-tertiary); letter-spacing:0.04em; }
@@ -700,15 +721,17 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
   <div class="status-pill"><span class="status-dot" aria-hidden="true"></span><span class="status-txt">Open to roles — Sydney, AU</span></div>
 </header>
 
+
 <!-- ============================================================
                           HERO / LANDING            
      ============================================================ -->
 <section class="hero" id="top">
   <div class="hero-bgwrap" id="hero-bgwrap">
     <div class="hero-media">
-      <video autoplay muted loop playsinline poster="media/hero-poster.jpg" aria-hidden="true">
+      <video autoplay muted loop playsinline poster="media/hero-poster.jpg" aria-hidden="true" loading="lazy">
         <source src="media/hero-velocity.mp4" type="video/mp4">
       </video>
+      <div class="overlay"></div>
     </div>
     <div class="hero-content">
       <div class="hero-eyebrow">SYDNEY, AU — OPEN TO RELOCATION</div>
@@ -743,6 +766,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
          <div class="portrait-frame" id="portrait-frame">
           <img src="media/brandon-portrait.jpg"   alt="Brandon Yuen"   loading="lazy">  
           <div class="portrait-tag">SYDNEY, NSW — 2020</div>
+          <div class="overlay"></div>
         </div>
       </div>
 
@@ -768,7 +792,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
       <div class="past-experience reveal">
         <div class="intro-label">PAST EXPERIENCE</div>
         <div class="experience-card">
-          <div class="company-logo"> <img src="media/Qantas Work/Qantas-logo.png" alt="Qantas Airways" loading="lazy"> </div>
+          <div class="company-logo"> <img src="media/Qantas Work/Qantas-logo.webp" alt="Qantas Airways" loading="lazy"> <div class="overlay"></div> </div>
           <div class="experience-info">
             <div class="experience-company">QANTAS AIRWAYS</div>
             <h3>Cabin Engineer</h3>
@@ -788,7 +812,8 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
         <div class="portfolio-grid">
           <!-- 01 -->
           <a href="#research-thesis" class="portfolio-tile">
-            <img src="media/Grid Photos/3.jpg" alt="Research Thesis" loading="lazy">
+            <img src="media/Grid Photos/3.jpg" alt="Research Thesis" loading="lazy" draggable="false"> 
+            <div class="overlay"></div>
             <div class="portfolio-overlay">
               <span class="portfolio-number"> 01 </span>
               <span class="portfolio-name">Research Thesis</span>
@@ -796,7 +821,8 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </a>
           <!-- 02 --> <!--Edited-->
           <a href="#cfd" class="portfolio-tile">
-            <img src="media/Grid Photos/15.jpg" alt="Computational Fluid Dynamics" loading="lazy">
+            <img src="media/Grid Photos/15.jpg" alt="Computational Fluid Dynamics" loading="lazy" draggable="false">
+            <div class="overlay"></div>
             <div class="portfolio-overlay">
               <span class="portfolio-number">02 </span>
               <span class="portfolio-name">CFD </span>
@@ -805,7 +831,8 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           <!-- 03 -->
           <a href="#qantas" class="portfolio-tile">
 
-            <img src="media/Grid Photos/8.jpg" alt="Qantas Engineering" loading="lazy">
+            <img src="media/Grid Photos/8.jpg" alt="Qantas Engineering" loading="lazy" draggable="false">
+            <div class="overlay"></div>
             <div class="portfolio-overlay">
               <span class="portfolio-number">03 </span>
               <span class="portfolio-name">QANTAS</span>
@@ -813,7 +840,8 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </a>
           <!-- 04 -->
           <a href="#cad" class="portfolio-tile">
-            <img src="media/Grid Photos/13.jpg" alt="CAD / DESIGN" loading="lazy">
+            <img src="media/Grid Photos/13.jpg" alt="CAD / DESIGN" loading="lazy" draggable="false">
+            <div class="overlay"></div>
             <div class="portfolio-overlay">
               <span class="portfolio-number">04</span>
               <span class="portfolio-name">CAD / DESIGN</span>
@@ -821,7 +849,8 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </a>
           <!-- 05 -->
           <a href="#aero4110" class="portfolio-tile">
-            <img src="media/Grid Photos/4.jpg"alt="Projects" loading="lazy">
+            <img src="media/Grid Photos/4.jpg"alt="Projects" loading="lazy" draggable="false">
+            <div class="overlay"></div>
             <div class="portfolio-overlay">
               <span class="portfolio-number">05</span>
               <span class="portfolio-name">Selected Works</span>
@@ -829,7 +858,8 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </a>
           <!-- 06 -->
           <a href="#photography" class="portfolio-tile">
-            <img src="media/Grid Photos/2.jpg" alt= "Photography"loading="lazy">
+            <img src="media/Grid Photos/2.jpg" alt= "Photography"loading="lazy" draggable="false">
+            <div class="overlay"></div>
             <div class="portfolio-overlay">
               <span class="portfolio-number">06</span>
               <span class="portfolio-name">Photographs</span>
@@ -837,7 +867,8 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </a>
           <!-- 07 -->
           <a href="#music" class="portfolio-tile">
-            <img src="media/Grid Photos/14.jpg" alt="Music Production"loading="lazy">
+            <img src="media/Grid Photos/14.jpg" alt="Music Production"loading="lazy" draggable="false">
+            <div class="overlay"></div>
             <div class="portfolio-overlay">
               <span class="portfolio-number">07</span>
               <span class="portfolio-name">Music</span>
@@ -845,7 +876,8 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </a>
           <!-- 08 -->
           <a href="#notepad" class="portfolio-tile">
-            <img src="media/Grid Photos/7.jpg" alt="Notepad" loading="lazy">
+            <img src="media/Grid Photos/7.jpg" alt="Notepad" loading="lazy" draggable="false">
+            <div class="overlay"></div>
             <div class="portfolio-overlay">
               <span class="portfolio-number">08</span>
               <span class="portfolio-name">Notepad</span>
@@ -853,7 +885,8 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </a>
           <!-- 09 -->
           <a href="#contact" class="portfolio-tile">
-            <img src="media/Grid Photos/1.jpg"alt="Contact"loading="lazy">
+            <img src="media/Grid Photos/1.jpg"alt="Contact"loading="lazy" draggable="false">
+            <div class="overlay"></div>
             <div class="portfolio-overlay">
               <span class="portfolio-number">09</span>
               <span class="portfolio-name">CONTACT</span>
@@ -1066,9 +1099,10 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
       </div>
 
       <div class="plate">
-        <video autoplay muted loop playsinline>
-          <source src="media/DES.mp4" type="video/mp4" loading="lazy"></source>
+        <video autoplay muted loop playsinline loading="lazy">
+          <source src="media/DES.mp4" type="video/mp4"></source>
         </video>
+        <div class="overlay"></div>
       </div>
       <div style="height: 12px;"></div>
       <h3>Supersonic Bluff Body Wake Dynamics</h3>
@@ -1077,28 +1111,28 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
 
       <div class="plate-grid">
         <div class="plate">
-          <figure><img src="media/thesis/schlieren-des-vs-rans.png" alt="Schlieren-style density gradient comparison between k-omega RANS and DES turbulence models" loading="lazy"></figure>
+          <figure><img src="media/thesis/schlieren-des-vs-rans.webp" alt="Schlieren-style density gradient comparison between k-omega RANS and DES turbulence models" loading="lazy"></figure>
           <figcaption>
             <div class="plate-label">RANS vs. DES — wake thickness</div>
             <div class="plate-text">Simulated schlieren imagery shows what the switch to DES actually bought me: the RANS wake stays smooth and steady, while DES resolves the real turbulent structure. That extra fidelity is what drove the wake thickness down from 1.97&nbsp;mm to 1.29&nbsp;mm — a 34.5% reduction.</div>
           </figcaption>
         </div>
         <div class="plate">
-          <figure><img src="media/thesis/psd-pressure.png" alt="Contour plots of power spectral density of pressure across the wake at successive timesteps" loading="lazy"></figure>
+          <figure><img src="media/thesis/psd-pressure.webp" alt="Contour plots of power spectral density of pressure across the wake at successive timesteps" loading="lazy"></figure>
           <figcaption>
             <div class="plate-label">Power spectral density — pressure</div>
             <div class="plate-text">Tracking the pressure spectrum downstream isolates where the wake actually organises into periodic shedding. The energy concentrates between x/d 3.5–6, marking the vortex-shedding region I used to define the dominant Strouhal frequency.</div>
           </figcaption>
         </div>
         <div class="plate">
-          <figure><img src="media/thesis/wake-velocity-fluct.png" alt="X and Y velocity fluctuation spectra at four points in the wake" loading="lazy"></figure>
+          <figure><img src="media/thesis/wake-velocity-fluct.webp" alt="X and Y velocity fluctuation spectra at four points in the wake" loading="lazy"></figure>
           <figcaption>
             <div class="plate-label">Velocity fluctuation spectra</div>
             <div class="plate-text">Four probe points through the wake show how the fluctuation energy decays with distance from the body. Both components carry a negative gradient, but the near-wake points (1 and 3) run consistently hotter — the recirculation zone doing what recirculation zones do.</div>
           </figcaption>
         </div>
         <div class="plate">
-          <figure><img src="media/thesis/injector-comparison.png" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy"></figure>
+          <figure><img src="media/thesis/injector-comparison.webp" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy"></figure>
           <figcaption>
             <div class="plate-label">Geometry study — injector trailing edge</div>
             <div class="plate-text">Swapping a triangular trailing edge for a modified strut halves the wake width for a near-identical subsonic core. A reminder that in supersonic flow, small geometric changes at the trailing edge changes the whole downstream picture.</div>
@@ -1117,9 +1151,10 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
       </div>
         
       <div class="plate">
-        <video autoplay muted loop playsinline>
-          <source src="media/AERO4110 Photos/AircraftAni2 - Made with Clipchamp.mp4" type="video/mp4" loading="lazy"></source>
+        <video autoplay muted loop playsinline loading="lazy">
+          <source src="media/AERO4110 Photos/AircraftAni2 - Made with Clipchamp.mp4" type="video/mp4"></source>
         </video>
+        <div class="overlay"></div>
       </div>
       <div style="height: 12px;"></div>
       <h3>Kit-Plane Aircraft Design</h3>
@@ -1149,7 +1184,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
         </div>
       
         <div class="plate">
-          <figure><img src="media/AERO4110 Photos/EngDrawing.png" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy"></figure>
+          <figure><img src="media/AERO4110 Photos/EngDrawing.webp" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy"></figure>
           <figcaption>
             <div class="plate-label">Engineering Drawing</div>
             <div class="plate-text">Final Flight Control Surfaces Design Specifications</div>
@@ -1217,7 +1252,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
         </div>   
         
         <div class="plate">
-          <figure><img src="media/AERO4110 Photos/FlightEnv.png" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy"></figure>
+          <figure><img src="media/AERO4110 Photos/FlightEnv.webp" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy"></figure>
           <figcaption>
             <div class="plate-label">Flight Envelope</div>
             <div class="plate-text">A Flight Envelope based on given criteria and Airspeed estimations from Raymer</div>
@@ -1225,7 +1260,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
         </div>
 
         <div class="plate">
-          <figure><img src="media/AERO4110 Photos/CGshift.png" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy"></figure>
+          <figure><img src="media/AERO4110 Photos/CGshift.webp" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy"></figure>
           <figcaption>
             <div class="plate-label">CG Envelope</div>
             <div class="plate-text">Utilise MATLAB and Raymers formula  for automatic calculation, to show the centre of gravity shift backwards as fuel depletes.</div>
@@ -1233,7 +1268,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
         </div>
         
         <div class="plate">
-          <figure><img src="media/AERO4110 Photos/Figure for -2.25deg stab justification.png" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy"></figure>
+          <figure><img src="media/AERO4110 Photos/Figure for -2.25deg stab justification.webp" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy"></figure>
           <figcaption>
             <div class="plate-label">Flow5 Stability Simulation</div>
             <div class="plate-text">Concatenated XFLR-5  (2D Wing) to FLow5 (Full Aircraft) for the 3D Stability Analyses (-2.25deg horizontal stabilizer) justification. Systematic Approach to find a suitable CG and Stability properties by experimenting with different weight distributions and Aerodynamic properties.</div>
@@ -1259,7 +1294,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
       <div class="tags"><span class="tag">Draftsight</span><span class="tag">SolidWorks</span><span class="tag">PDM / BOM</span></div>
         <div class="plate-grid">
           <div class="plate">
-            <figure><img src="media/Qantas Work/X32750D1-093-00 G3F-1.png" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy"></figure>
+            <figure><img src="media/Qantas Work/X32750D1-093-00 G3F-1.webp" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy"></figure>
             <figcaption>
               <div class="plate-label">Flow5 Stability Simulation</div>
               <div class="plate-text">Concatenated XFLR-5  (2D Wing) to FLow5 (Full Aircraft) for the 3D Stability Analyses (-2.25deg horizontal stabilizer) justification. Systematic Approach to find a suitable CG and Stability properties by experimenting with different weight distributions and Aerodynamic properties.</div>
@@ -1267,7 +1302,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </div>
 
           <div class="plate">
-            <figure><img src="media/Qantas Work/X09652D1-093-00 G2AR-1.png" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy"></figure>
+            <figure><img src="media/Qantas Work/X09652D1-093-00 G2AR-1.webp" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy"></figure>
             <figcaption>
               <div class="plate-label">Flow5 Stability Simulation</div>
               <div class="plate-text">Concatenated XFLR-5  (2D Wing) to FLow5 (Full Aircraft) for the 3D Stability Analyses (-2.25deg horizontal stabilizer) justification. Systematic Approach to find a suitable CG and Stability properties by experimenting with different weight distributions and Aerodynamic properties.</div>
@@ -1294,33 +1329,33 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
     </div>
 
     <div class="feature-hero reveal d1">
-      <img class="ph" src="media/CFD/Velocity.png" alt="CFD velocity contour, hero image">
+      <img class="ph" src="media/CFD/Velocity.webp" alt="CFD velocity contour, hero image">
       <div class="feature-hero-tag">VELOCITY CONTOUR — RANS SOLUTION</div>
     </div>
 
     <div class="feature-grid reveal d2">
       <figure class="feature-tile">
-        <img class="ph" src="media/CFD/Pressure.png" alt="">
+        <img class="ph" src="media/CFD/Pressure.webp" alt="">
         <figcaption>Pressure distribution — transonic case</figcaption>
       </figure>
       <figure class="feature-tile">
-        <img class="ph" src="media/CFD/Pressure&Streamline1.png" alt="">
+        <img class="ph" src="media/CFD/Pressure&Streamline1.webp" alt="">
         <figcaption>Pressure distribution & Streamline in z axis</figcaption>
       </figure>
       <figure class="feature-tile">
-        <img class="ph" src="media/CFD/Pressure&Streamline2.png" alt="">
+        <img class="ph" src="media/CFD/Pressure&Streamline2.webp" alt="">
         <figcaption>Pressure distribution & Streamline in y axis</figcaption>
       </figure>
       <figure class="feature-tile">
-        <img class="ph" src="media/CFD/Pressure&Streamline3.png" alt="">
+        <img class="ph" src="media/CFD/Pressure&Streamline3.webp" alt="">
         <figcaption>Pressure distribution & Streamline in x axis</figcaption>
       </figure>
       <figure class="feature-tile">
-        <img class="ph" src="media/CFD/Density.png" alt="">
+        <img class="ph" src="media/CFD/Density.webp" alt="">
         <figcaption>Density Distribution</figcaption>
       </figure>
       <figure class="feature-tile">
-        <img class="ph" src="media/CFD/FLU 3.png" alt="">
+        <img class="ph" src="media/CFD/FLU 3.webp" alt="">
         <figcaption>Velocity Streamlines Visualization</figcaption>
       </figure>
     </div>
@@ -1344,10 +1379,11 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
 
     <div class="feature-hero reveal d1">
       <!-- swap the poster + source paths for your real turbine engine video -->
-      <video controls poster="media/CAD/Finished.png" preload="none">
+      <video controls poster="media/CAD/Finished.webp" preload="none" loading="lazy">
         <source src="media/CAD/RealJetEngine(1).mp4" type="video/mp4">
         Your browser does not support the video tag.
       </video>
+      <div class="overlay"></div>
       <div class="feature-hero-tag">TURBOFAN ENGINE — FULL ASSEMBLY MODEL</div>
     </div>
 
@@ -1355,28 +1391,32 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
       <div class="intro-label">MINI PROJECTS</div>
       <div class="mini-grid">
         <a class="mini-card" href="#">
-          <img class="ph" src="media/CAD/TurbineEngine.png" alt="">
+          <img class="ph" src="media/CAD/TurbineEngine.webp" alt="" draggable="false">
+          <div class="overlay"></div>
           <div class="mini-card-info">
             <h4>Small Turbine Model</h4>
             <p>Introduction to Turbine Engine Design.</p>
           </div>
         </a>
         <a class="mini-card" href="#">
-          <img class="ph" src="media/CAD/FirstDayProgress.png" alt="">
+          <img class="ph" src="media/CAD/FirstDayProgress.webp" alt="" draggable="false">
+          <div class="overlay"></div>
           <div class="mini-card-info">
             <h4>Turbine Blades</h4>
             <p>Turbine blade and internal shaft assembly modelled for the 3D Printing.</p>
           </div>
         </a>
         <a class="mini-card" href="#">
-          <img class="ph" src="media/CAD/1.png" alt="">
+          <img class="ph" src="media/CAD/1.webp" alt="" draggable="false">
+          <div class="overlay"></div>
           <div class="mini-card-info">
             <h4>Small Gear</h4>
             <p>Smooth edge gear.</p>
           </div>
         </a>
         <a class="mini-card" href="#">
-          <img class="ph" src="media/CAD/7.png" alt="">
+          <img class="ph" src="media/CAD/7.webp" alt="" draggable="false">
+          <div class="overlay"></div>
           <div class="mini-card-info">
             <h4>Fixture &amp; Jig Design</h4>
             <p>Custom fabrication jig for holding components during welding and assembly.</p>
@@ -1414,38 +1454,40 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
   <!-- continuous panning rows — swap these ~6-8 images per row for your own -->
   <div class="marquee-row" aria-hidden="true">
     <div class="marquee-track">
-      <img class="ph" src="media/Photography/30XT0556.JPG" alt="">
-      <img class="ph" src="media/Photography/30XT1963(3).jpg" alt="">
-      <img class="ph" src="media/Photography/30XT3426.JPG" alt="">
-      <img class="ph" src="media/Photography/30XT0551.jpg" alt="">
-      <img class="ph" src="media/Photography/30XT1497(1).jpg" alt="">
-      <img class="ph" src="media/Photography/30XT7796.JPG" alt="">
+      <img class="ph" src="media/Photography/30XT0556.JPG" alt="" draggable="false">
+      <img class="ph" src="media/Photography/30XT1963(3).jpg" alt="" draggable="false">
+      <img class="ph" src="media/Photography/30XT3426.JPG" alt="" draggable="false">
+      <img class="ph" src="media/Photography/30XT0551.jpg" alt="" draggable="false">
+      <img class="ph" src="media/Photography/30XT1497(1).jpg" alt="" draggable="false">
+      <img class="ph" src="media/Photography/30XT7796.JPG" alt="" draggable="false">
       <!-- duplicate set — required for the seamless CSS loop, keep identical -->
-      <img class="ph" src="media/Photography/30XT0556.JPG" alt="">
-      <img class="ph" src="media/Photography/30XT1963(3).jpg" alt="">
-      <img class="ph" src="media/Photography/30XT3426.JPG" alt="">
-      <img class="ph" src="media/Photography/30XT0551.jpg" alt="">
-      <img class="ph" src="media/Photography/30XT1497(1).jpg" alt="">
-      <img class="ph" src="media/Photography/30XT7796.JPG" alt="">
+      <img class="ph" src="media/Photography/30XT0556.JPG" alt="" draggable="false">
+      <img class="ph" src="media/Photography/30XT1963(3).jpg" alt="" draggable="false">
+      <img class="ph" src="media/Photography/30XT3426.JPG" alt="" draggable="false">
+      <img class="ph" src="media/Photography/30XT0551.jpg" alt="" draggable="false">
+      <img class="ph" src="media/Photography/30XT1497(1).jpg" alt="" draggable="false">
+      <img class="ph" src="media/Photography/30XT7796.JPG" alt="" draggable="false">
     </div>
+    <div class="overlay"></div>
   </div>
 
   <div class="marquee-row reverse" aria-hidden="true">
     <div class="marquee-track">
-      <img class="ph" src="media/Photography/30XT1281(3).jpg" alt="">
-      <img class="ph" src="media/Photography/30XT1051.jpg" alt="">
-      <img class="ph" src="media/Photography/30XT6506.jpg" alt="">
-      <img class="ph" src="media/Photography/30XT0863.jpg" alt="">
-      <img class="ph" src="media/Photography/30XT4267.jpg" alt="">
-      <img class="ph" src="media/Photography/30XT9957.JPG" alt="">
+      <img class="ph" src="media/Photography/30XT1281(3).jpg" alt="" draggable="false">
+      <img class="ph" src="media/Photography/30XT1051.jpg" alt="" draggable="false">
+      <img class="ph" src="media/Photography/30XT6506.jpg" alt="" draggable="false">
+      <img class="ph" src="media/Photography/30XT0863.jpg" alt="" draggable="false">
+      <img class="ph" src="media/Photography/30XT4267.jpg" alt="" draggable="false">
+      <img class="ph" src="media/Photography/30XT9957.JPG" alt="" draggable="false">
       <!-- duplicate set -->
-      <img class="ph" src="media/Photography/30XT1281(3).jpg" alt="">
-      <img class="ph" src="media/Photography/30XT1051.jpg" alt="">
-      <img class="ph" src="media/Photography/30XT6506.jpg" alt="">
-      <img class="ph" src="media/Photography/30XT0863.jpg" alt="">
-      <img class="ph" src="media/Photography/30XT4267.jpg" alt="">
-      <img class="ph" src="media/Photography/30XT9957.JPG" alt="">
+      <img class="ph" src="media/Photography/30XT1281(3).jpg" alt="" draggable="false">
+      <img class="ph" src="media/Photography/30XT1051.jpg" alt="" draggable="false">
+      <img class="ph" src="media/Photography/30XT6506.jpg" alt="" draggable="false">
+      <img class="ph" src="media/Photography/30XT0863.jpg" alt="" draggable="false">
+      <img class="ph" src="media/Photography/30XT4267.jpg" alt="" draggable="false">
+      <img class="ph" src="media/Photography/30XT9957.JPG" alt="" draggable="false">
     </div>
+    <div class="overlay"></div>
   </div>
 
   <div class="wrap" style="margin-top:56px;">
@@ -1455,16 +1497,17 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
     </div>
 
     <div class="photo-gallery reveal d1">
-      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT0863.jpg" alt=""></a>
-      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT1281(3).jpg" alt=""></a>
-      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT1963(3).jpg" alt=""></a>
-      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/IMG_1696(2).JPG" alt=""></a>
-      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT0551.jpg" alt=""></a>
-      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT1497(1).jpg" alt=""></a>
-      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT3426.jpg" alt=""></a>
-      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT1480.jpg" alt=""></a>
-      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT7796.JPG" alt=""></a>
+      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT0863.jpg" alt="" draggable="false"></a>
+      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT1281(3).jpg" alt="" draggable="false"></a>
+      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT1963(3).jpg" alt="" draggable="false"></a>
+      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/IMG_1696(2).JPG" alt="" draggable="false"></a>
+      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT0551.jpg" alt="" draggable="false"></a>
+      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT1497(1).jpg" alt="" draggable="false"></a>
+      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT3426.jpg" alt="" draggable="false"></a>
+      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT1480.jpg" alt="" draggable="false"></a>
+      <a class="photo-tile" href="#"><img class="ph" src="media/Photography/30XT7796.JPG" alt="" draggable="false"></a>
     </div>
+    <div class="overlay"></div>
   </div>
 </section>
 
@@ -1572,8 +1615,8 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           below, not rigorous, just getting the geometry straight in my head.
         </p>
         <div class="note-sketch">
-          <img class="ph" src="media/thesis/Pic14.png" alt="">
-          <img class="ph" src="media/thesis/Pic15.png" alt="">
+          <img class="ph" src="media/thesis/Pic14.webp" alt="">
+          <img class="ph" src="media/thesis/Pic15.webp" alt="">
         </div>
       </article>
 
@@ -1907,6 +1950,30 @@ const TRACKS = [
     if(e.key === 'ArrowRight') show(current + 1);
   });
 })();
+
+// NEW: Disable Right click on images to prevent easy download
+  document.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG') {
+      e.preventDefault();
+    }
+  });
+
+// Non Draggable Images, Videos, and Audio
+  document.addEventListener("DOMContentLoaded", () => {
+    // Select all images, videos, and audio elements on the page
+    const mediaElements = document.querySelectorAll('img, video, audio');
+    
+    mediaElements.forEach(element => {
+      // Disables HTML5 dragging
+      element.setAttribute('draggable', 'false');
+      
+      // Stops the browser from starting a drag event
+      element.addEventListener('dragstart', (e) => {
+        e.preventDefault();
+      });
+    });
+  });
+</script>
 
 </script>
 
