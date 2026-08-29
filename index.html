@@ -257,13 +257,14 @@ h1 em{ font-style:normal; color:var(--amber-bright); }
 /* ---------- The 3×3 image grid ---------- */
 .portfolio-index {  min-width: 0;}
 .portfolio-grid {  display: grid;  grid-template-columns: repeat(3, 1fr);  gap: 8px;}
-.portfolio-tile {  position: relative;  display: block;  aspect-ratio: 1 / 1;  overflow: hidden;  border: 1px solid var(--hairline);  border-radius: 4px;  background: var(--bg-1);  color: var(--text-primary);  text-decoration: none;  transition:    transform .3s cubic-bezier(.2,.7,.2,1),    border-color .3s ease,    box-shadow .3s ease;}
-
+.portfolio-tile {  position: relative;  display: block;  aspect-ratio: 1 / 1;  overflow: hidden;  border: 1px solid var(--hairline);  border-radius: 4px;  background: var(--bg-1);  color: var(--text-primary);  text-decoration: none;  
+  transition:    transform .25s ease,    border-color .25s ease;  will-change: transform;  transform: translateZ(0);}
 /* ---------- Images ---------- */
-.portfolio-tile img {  width: 100%;  height: 100%;  object-fit: cover;  display: block;  filter: grayscale(25%) contrast(1.05);  transition:    transform .45s cubic-bezier(.2,.7,.2,1),    filter .35s ease;}
+.portfolio-tile img {  width: 100%;  height: 100%;  object-fit: cover;  display: block; 
+  transition:    transform .35s ease;  will-change: transform;  transform: translateZ(0);}
 
 /* ---------- Dark Overlay ---------- */
-.portfolio-tile::after {  content: "";  position: absolute;  inset: 0;  background:linear-gradient(180deg,      rgba(8, 9, 11, 0.05),      rgba(8, 9, 11, 0.75)    );  opacity: 0.7;  transition: opacity .3s ease;}
+.portfolio-tile::after {  content: ""; position: absolute; inset: 0; background:linear-gradient(180deg, rgba(8, 9, 11, 0.05), rgba(8, 9, 11, 0.75) );  opacity: 0.7;  transition: opacity .25s ease;}
 
 /* ---------- Text on Image ---------- */
 .portfolio-overlay {  position: absolute;  inset: 0;  z-index: 2;  display: flex;  flex-direction: column;  justify-content: space-between;  padding: 12px;}
@@ -271,9 +272,9 @@ h1 em{ font-style:normal; color:var(--amber-bright); }
 .portfolio-name {  font-family: var(--font-mono);  font-size: 8px;  letter-spacing: 0.1em;  color: var(--text-primary);}
 
 /* ---------- Mouse Hover ---------- */
-.portfolio-tile:hover {  transform: translateY(-3px);  border-color: var(--amber);  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.28);}
-.portfolio-tile:hover img {  transform: scale(1.06);  filter: grayscale(0%) contrast(1.08);}
-.portfolio-tile:hover::after {  opacity: 0.5;}
+.portfolio-tile:hover {  transform: translateY(-2px) translateZ(0);  border-color: var(--amber);}
+.portfolio-tile:hover img {  transform: scale(1.04) translateZ(0);}
+.portfolio-tile:hover::after {  opacity: 0.55;}
 .portfolio-tile:hover .portfolio-name {  color: var(--amber-bright);}
 
 /* ---------- PAST EXPERIENCE ---------- */
@@ -467,7 +468,7 @@ h1 em{ font-style:normal; color:var(--amber-bright); }
    ============================================================ */
 
 .intro-label{  font-family:var(--font-mono);  font-size:10.5px;  letter-spacing:.14em;  color:var(--text-tertiary);  margin-bottom:14px;}
-.feature-section{ padding:110px 0; position:relative; }
+.feature-section{ padding:110px 0; position:relative; content-visibility: auto; contain-intrinsic-size: auto 1000px;}
 
 .feature-head{  max-width:640px;  margin-bottom:48px;  opacity:0; transform:translateY(20px);  animation:fadeUp .9s cubic-bezier(.2,.7,.2,1) forwards;}
 .feature-title{  font-size:clamp(28px,4vw,44px);  font-weight:600;  margin:0 0 14px;  letter-spacing:-.01em;}
@@ -511,7 +512,7 @@ h1 em{ font-style:normal; color:var(--amber-bright); }
 .marquee-row{  width:100%; overflow:hidden; position:relative;  margin-bottom:6px;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 98%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 8%,#000 98%,transparent);}
-.marquee-track{  display:flex; gap:8px; width:max-content;  animation:marquee-left 38s linear infinite;}
+.marquee-track{  display:flex; gap:8px; width:max-content;  animation:marquee-left 38s linear infinite; ill-change: transform; transform: translateZ(0);}
 .marquee-row.reverse .marquee-track{ animation-name:marquee-right; animation-duration:44s; }
 .marquee-track img{  height:180px; width:auto; aspect-ratio:4/3; object-fit:cover;  border:1px solid var(--hairline); border-radius:4px;  filter:none; image-rendering: auto; display:block;}
 @keyframes marquee-left{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
@@ -721,7 +722,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
 <section class="hero" id="top">
   <div class="hero-bgwrap" id="hero-bgwrap">
     <div class="hero-media">
-      <video autoplay muted loop playsinline poster="WEBP/hero-velocity.mp4" aria-hidden="true" loading="lazy">
+      <video autoplay muted loop playsinline preload="metadata" poster="WEBP/hero-velocity.mp4" aria-hidden="true" loading="lazy">
         <source src="WEBP/hero-velocity.mp4" type="video/mp4">
       </video>
       <div class="overlay"></div>
@@ -805,7 +806,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
         <div class="portfolio-grid">
           <!-- 01 -->
           <a href="#research-thesis" class="portfolio-tile">
-            <img src="WEBP/Grid Photos/3.webp" alt="Research Thesis" loading="lazy" draggable="false"> 
+            <img src="WEBP/Grid Photos/3.webp" alt="Research Thesis" loading="eager" fetchpriority="high" decoding="async"="false"> 
             <div class="overlay"></div>
             <div class="portfolio-overlay">
               <span class="portfolio-number"> 01 </span>
@@ -814,7 +815,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </a>
           <!-- 02 --> <!--Edited-->
           <a href="#cfd" class="portfolio-tile">
-            <img src="WEBP/Grid Photos/15.webp" alt="Computational Fluid Dynamics" loading="lazy" draggable="false">
+            <img src="WEBP/Grid Photos/15.webp" alt="Computational Fluid Dynamics" loading="eager" fetchpriority="high" decoding="async" draggable="false">
             <div class="overlay"></div>
             <div class="portfolio-overlay">
               <span class="portfolio-number">02 </span>
@@ -823,7 +824,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </a>
           <!-- 03 -->
           <a href="#qantas" class="portfolio-tile">
-            <img src="WEBP/Grid Photos/8.webp" alt="Qantas Engineering" loading="lazy" draggable="false">
+            <img src="WEBP/Grid Photos/8.webp" alt="Qantas Engineering" loading="eager" fetchpriority="high" decoding="async" draggable="false">
             <div class="overlay"></div>
             <div class="portfolio-overlay">
               <span class="portfolio-number">03 </span>
@@ -832,7 +833,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </a>
           <!-- 04 -->
           <a href="#cad" class="portfolio-tile">
-            <img src="WEBP/Grid Photos/13.webp" alt="CAD / DESIGN" loading="lazy" draggable="false">
+            <img src="WEBP/Grid Photos/13.webp" alt="CAD / DESIGN" loading="eager" fetchpriority="high" decoding="async" draggable="false">
             <div class="overlay"></div>
             <div class="portfolio-overlay">
               <span class="portfolio-number">04</span>
@@ -841,7 +842,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </a>
           <!-- 05 -->
           <a href="#aero4110" class="portfolio-tile">
-            <img src="WEBP/Grid Photos/4.webp"alt="Projects" loading="lazy" draggable="false">
+            <img src="WEBP/Grid Photos/4.webp"alt="Projects" loading="eager" fetchpriority="high" decoding="async" draggable="false">
             <div class="overlay"></div>
             <div class="portfolio-overlay">
               <span class="portfolio-number">05</span>
@@ -850,7 +851,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </a>
           <!-- 06 -->
           <a href="#photography" class="portfolio-tile">
-            <img src="WEBP/Grid Photos/2.webp" alt= "Photography"loading="lazy" draggable="false">
+            <img src="WEBP/Grid Photos/2.webp" alt= "Photography"loading="eager" fetchpriority="high" decoding="async" draggable="false">
             <div class="overlay"></div>
             <div class="portfolio-overlay">
               <span class="portfolio-number">06</span>
@@ -859,7 +860,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </a>
           <!-- 07 -->
           <a href="#music" class="portfolio-tile">
-            <img src="WEBP/Grid Photos/14.webp" alt="Music Production"loading="lazy" draggable="false">
+            <img src="WEBP/Grid Photos/14.webp" alt="Music Production"loading="eager" fetchpriority="high" decoding="async" draggable="false">
             <div class="overlay"></div>
             <div class="portfolio-overlay">
               <span class="portfolio-number">07</span>
@@ -868,7 +869,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </a>
           <!-- 08 -->
           <a href="#notepad" class="portfolio-tile">
-            <img src="WEBP/Grid Photos/7.webp" alt="Notepad" loading="lazy" draggable="false">
+            <img src="WEBP/Grid Photos/7.webp" alt="Notepad" loading="eager" fetchpriority="high" decoding="async" draggable="false">
             <div class="overlay"></div>
             <div class="portfolio-overlay">
               <span class="portfolio-number">08</span>
@@ -877,7 +878,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </a>
           <!-- 09 -->
           <a href="#contact" class="portfolio-tile">
-            <img src="WEBP/Grid Photos/1.webp"alt="Contact"loading="lazy" draggable="false">
+            <img src="WEBP/Grid Photos/1.webp"alt="Contact"loading="eager" fetchpriority="high" decoding="async" draggable="false">
             <div class="overlay"></div>
             <div class="portfolio-overlay">
               <span class="portfolio-number">09</span>
@@ -1252,7 +1253,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
         </div>
 
         <div class="plate">
-          <figure><img src="WEBP/AERO4110 Photos/CGshift.webp" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy"></figure>
+          <figure><img src="WEBP/AERO4110 Photos/CGshift.webp" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy" decoding="async"></figure>
           <figcaption>
             <div class="plate-label">CG Envelope</div>
             <div class="plate-text">Utilise MATLAB and Raymers formula  for automatic calculation, to show the centre of gravity shift backwards as fuel depletes.</div>
@@ -1260,7 +1261,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
         </div>
         
         <div class="plate">
-          <figure><img src="WEBP/AERO4110 Photos/Figure for -2.25deg stab justification.webp" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy"></figure>
+          <figure><img src="WEBP/AERO4110 Photos/Figure for -2.25deg stab justification.webp" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy" decoding="async"></figure>
           <figcaption>
             <div class="plate-label">Flow5 Stability Simulation</div>
             <div class="plate-text">Concatenated XFLR-5  (2D Wing) to FLow5 (Full Aircraft) for the 3D Stability Analyses (-2.25deg horizontal stabilizer) justification. Systematic Approach to find a suitable CG and Stability properties by experimenting with different weight distributions and Aerodynamic properties.</div>
@@ -1278,7 +1279,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
       </div>
 
       <div class="plate">
-        <figure><img src="WEBP/Qantas Work/IMG_1244.webp" alt="Qantaswork" loading="lazy"></figure>
+        <figure><img src="WEBP/Qantas Work/IMG_1244.webp" alt="Qantaswork" loading="lazy" decoding="async"></figure>
       </div>
       <div style="height: 12px;"></div>
       <h3>Qantas Engineering</h3>
@@ -1286,7 +1287,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
       <div class="tags"><span class="tag">Draftsight</span><span class="tag">SolidWorks</span><span class="tag">PDM / BOM</span></div>
         <div class="plate-grid">
           <div class="plate">
-            <figure><img src="WEBP/Qantas Work/X32750D1-093-00 G3F-1.webp" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy"></figure>
+            <figure><img src="WEBP/Qantas Work/X32750D1-093-00 G3F-1.webp" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy" decoding="async"></figure>
             <figcaption>
               <div class="plate-label">Flow5 Stability Simulation</div>
               <div class="plate-text">Concatenated XFLR-5  (2D Wing) to FLow5 (Full Aircraft) for the 3D Stability Analyses (-2.25deg horizontal stabilizer) justification. Systematic Approach to find a suitable CG and Stability properties by experimenting with different weight distributions and Aerodynamic properties.</div>
@@ -1294,7 +1295,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           </div>
 
           <div class="plate">
-            <figure><img src="WEBP/Qantas Work/X09652D1-093-00 G2AR-1.webp" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy"></figure>
+            <figure><img src="WEBP/Qantas Work/X09652D1-093-00 G2AR-1.webp" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy" decoding="async"></figure>
             <figcaption>
               <div class="plate-label">Flow5 Stability Simulation</div>
               <div class="plate-text">Concatenated XFLR-5  (2D Wing) to FLow5 (Full Aircraft) for the 3D Stability Analyses (-2.25deg horizontal stabilizer) justification. Systematic Approach to find a suitable CG and Stability properties by experimenting with different weight distributions and Aerodynamic properties.</div>
@@ -1445,38 +1446,38 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
   <!-- continuous panning rows — swap these ~6-8 images per row for your own -->
   <div class="marquee-row" aria-hidden="true">
     <div class="marquee-track">
-      <img class="ph" src="WEBP/Photography/30XT0556.webp" alt="" draggable="false">
-      <img class="ph" src="WEBP/Photography/30XT1963(3).webp" alt="" draggable="false">
-      <img class="ph" src="WEBP/Photography/30XT3426.webp" alt="" draggable="false">
-      <img class="ph" src="WEBP/Photography/30XT0551.webp" alt="" draggable="false">
-      <img class="ph" src="WEBP/Photography/30XT1497(1).webp" alt="" draggable="false">
-      <img class="ph" src="WEBP/Photography/30XT7796.webp" alt="" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT0556.webp" alt="" loading="lazy" decoding="async" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT1963(3).webp" alt="" loading="lazy" decoding="async" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT3426.webp" alt="" loading="lazy" decoding="async" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT0551.webp" alt="" loading="lazy" decoding="async" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT1497(1).webp" alt="" loading="lazy" decoding="async" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT7796.webp" alt="" loading="lazy" decoding="async" draggable="false">
       <!-- duplicate set — required for the seamless CSS loop, keep identical -->
-      <img class="ph" src="WEBP/Photography/30XT0556.webp" alt="" draggable="false">
-      <img class="ph" src="WEBP/Photography/30XT1963(3).webp" alt="" draggable="false">
-      <img class="ph" src="WEBP/Photography/30XT3426.webp" alt="" draggable="false">
-      <img class="ph" src="WEBP/Photography/30XT0551.webp" alt="" draggable="false">
-      <img class="ph" src="WEBP/Photography/30XT1497(1).webp" alt="" draggable="false">
-      <img class="ph" src="WEBP/Photography/30XT7796.webp" alt="" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT0556.webp" alt="" loading="lazy" decoding="async" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT1963(3).webp" alt="" loading="lazy" decoding="async" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT3426.webp" alt="" loading="lazy" decoding="async" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT0551.webp" alt="" loading="lazy" decoding="async" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT1497(1).webp" alt="" loading="lazy" decoding="async" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT7796.webp" alt="" loading="lazy" decoding="async" draggable="false">
     </div>
     <div class="overlay"></div>
   </div>
 
   <div class="marquee-row reverse" aria-hidden="true">
     <div class="marquee-track">
-      <img class="ph" src="WEBP/Photography/30XT1281(3).webp" alt="" draggable="false">
-      <img class="ph" src="WEBP/Photography/30XT1051.webp" alt="" draggable="false">
-      <img class="ph" src="WEBP/Photography/30XT6506.webp" alt="" draggable="false">
-      <img class="ph" src="WEBP/Photography/30XT0863.webp" alt="" draggable="false">
-      <img class="ph" src="WEBP/Photography/30XT4267.webp" alt="" draggable="false">
-      <img class="ph" src="WEBP/Photography/30XT9957.webp" alt="" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT1281(3).webp" alt="" loading="lazy" decoding="async" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT1051.webp" alt="" loading="lazy" decoding="async" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT6506.webp" alt="" loading="lazy" decoding="async" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT0863.webp" alt="" loading="lazy" decoding="async" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT4267.webp" alt="" loading="lazy" decoding="async" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT9957.webp" alt="" loading="lazy" decoding="async" draggable="false">
       <!-- duplicate set -->
-      <img class="ph" src="WEBP/Photography/30XT1281(3).webp" alt="" draggable="false">
-      <img class="ph" src="WEBP/Photography/30XT1051.webp" alt="" draggable="false">
-      <img class="ph" src="WEBP/Photography/30XT6506.webp" alt="" draggable="false">
-      <img class="ph" src="WEBP/Photography/30XT0863.webp" alt="" draggable="false">
-      <img class="ph" src="WEBP/Photography/30XT4267.webp" alt="" draggable="false">
-      <img class="ph" src="WEBP/Photography/30XT9957.webp" alt="" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT1281(3).webp" alt="" loading="lazy" decoding="async" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT1051.webp" alt="" loading="lazy" decoding="async" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT6506.webp" alt="" loading="lazy" decoding="async" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT0863.webp" alt="" loading="lazy" decoding="async" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT4267.webp" alt="" loading="lazy" decoding="async" draggable="false">
+      <img class="ph" src="WEBP/Photography/30XT9957.webp" alt="" loading="lazy" decoding="async" draggable="false">
     </div>
     <div class="overlay"></div>
   </div>
@@ -1488,15 +1489,15 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
     </div>
 
     <div class="photo-gallery reveal d1">
-      <a class="photo-tile" href="#"><img class="ph" src="WEBP/Photography/30XT0863.webp" alt="" draggable="false"></a>
-      <a class="photo-tile" href="#"><img class="ph" src="WEBP/Photography/30XT1281(3).webp" alt="" draggable="false"></a>
-      <a class="photo-tile" href="#"><img class="ph" src="WEBP/Photography/30XT1963(3).webp" alt="" draggable="false"></a>
-      <a class="photo-tile" href="#"><img class="ph" src="WEBP/Photography/IMG_1696(2).webp" alt="" draggable="false"></a>
-      <a class="photo-tile" href="#"><img class="ph" src="WEBP/Photography/30XT0551.webp" alt="" draggable="false"></a>
-      <a class="photo-tile" href="#"><img class="ph" src="WEBP/Photography/30XT1497(1).webp" alt="" draggable="false"></a>
-      <a class="photo-tile" href="#"><img class="ph" src="WEBP/Photography/30XT3426.webp" alt="" draggable="false"></a>
-      <a class="photo-tile" href="#"><img class="ph" src="WEBP/Photography/30XT1480.webp" alt="" draggable="false"></a>
-      <a class="photo-tile" href="#"><img class="ph" src="WEBP/Photography/30XT7796.webp" alt="" draggable="false"></a>
+      <a class="photo-tile" href="#"><img class="ph" src="WEBP/Photography/30XT0863.webp" alt="" loading="lazy" decoding="async" draggable="false"></a>
+      <a class="photo-tile" href="#"><img class="ph" src="WEBP/Photography/30XT1281(3).webp" alt="" loading="lazy" decoding="async" draggable="false"></a>
+      <a class="photo-tile" href="#"><img class="ph" src="WEBP/Photography/30XT1963(3).webp" alt="" loading="lazy" decoding="async" draggable="false"></a>
+      <a class="photo-tile" href="#"><img class="ph" src="WEBP/Photography/IMG_1696(2).webp" alt="" loading="lazy" decoding="async" draggable="false"></a>
+      <a class="photo-tile" href="#"><img class="ph" src="WEBP/Photography/30XT0551.webp" alt="" loading="lazy" decoding="async" draggable="false"></a>
+      <a class="photo-tile" href="#"><img class="ph" src="WEBP/Photography/30XT1497(1).webp" alt="" loading="lazy" decoding="async" draggable="false"></a>
+      <a class="photo-tile" href="#"><img class="ph" src="WEBP/Photography/30XT3426.webp" alt="" loading="lazy" decoding="async" draggable="false"></a>
+      <a class="photo-tile" href="#"><img class="ph" src="WEBP/Photography/30XT1480.webp" alt="" loading="lazy" decoding="async" draggable="false"></a>
+      <a class="photo-tile" href="#"><img class="ph" src="WEBP/Photography/30XT7796.webp" alt="" loading="lazy" decoding="async" draggable="false"></a>
     </div>
     
   </div>
@@ -1521,7 +1522,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
       <!-- now-playing card -->
       <div class="player-card">
         <div class="player-art">
-          <img id="player-art-img" class="ph" src="WEBP/Music Production/1.webp" alt="">
+          <img id="player-art-img" class="ph" src="WEBP/Music Production/1.webp" alt="" loading="lazy" decoding="async">
         </div>
         <h3 class="player-title" id="player-title">Track One</h3>
         <p class="player-artist" id="player-artist">Brandon Yuen</p>
@@ -1553,15 +1554,15 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
     </div>
 
     <div class="studio-grid reveal d2">
-      <div class="studio-tile"><img class="ph" src="WEBP/Music Production/DAW.webp" alt=""><span class="studio-tile-tag">DAW SESSION</span>
+      <div class="studio-tile"><img class="ph" src="WEBP/Music Production/DAW.webp" alt="" loading="lazy" decoding="async"><span class="studio-tile-tag">DAW SESSION</span>
         <div class="mini-card-info">
           <h4>Small Turbine Model</h4>
           <p>Introduction to Turbine Engine Design.</p>
         </div>
       </div>
       
-      <div class="studio-tile"><img class="ph" src="WEBP/Music Production/Mixing.webp" alt=""><span class="studio-tile-tag">MIXING</span></div>
-      <div class="studio-tile"><img class="ph" src="WEBP/Music Production/Setup.webp" alt=""><span class="studio-tile-tag">SETUP</span></div>
+      <div class="studio-tile"><img class="ph" src="WEBP/Music Production/Mixing.webp" alt="" loading="lazy" decoding="async"><span class="studio-tile-tag">MIXING</span></div>
+      <div class="studio-tile"><img class="ph" src="WEBP/Music Production/Setup.webp" alt="" loading="lazy" decoding="async"><span class="studio-tile-tag">SETUP</span></div>
     </div>
   </div>
 </section>
@@ -1612,8 +1613,8 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
           below, not rigorous, just getting the geometry straight in my head.
         </p>
         <div class="note-sketch">
-          <img class="ph" src="WEBP/thesis/Pic14.webp" alt="">
-          <img class="ph" src="WEBP/thesis/Pic15.webp" alt="">
+          <img class="ph" src="WEBP/thesis/Pic14.webp" alt="" loading="lazy" decoding="async">
+          <img class="ph" src="WEBP/thesis/Pic15.webp" alt="" loading="lazy" decoding="async">
         </div>
       </article>
 
