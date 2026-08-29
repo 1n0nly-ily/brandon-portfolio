@@ -512,12 +512,13 @@ h1 em{ font-style:normal; color:var(--amber-bright); }
 .marquee-row{  width:100%; overflow:hidden; position:relative;  margin-bottom:6px;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 98%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 8%,#000 98%,transparent);}
-.marquee-track{  display:flex; gap:8px; width:max-content;  animation:marquee-left 38s linear infinite; ill-change: transform; transform: translateZ(0);}
+.marquee-track{  display:flex; gap:8px; width:max-content;  animation:marquee-left 38s linear infinite; animation-play-state:paused; will-change: transform; transform: translateZ(0);}
 .marquee-row.reverse .marquee-track{ animation-name:marquee-right; animation-duration:44s; }
 .marquee-track img{  height:180px; width:auto; aspect-ratio:4/3; object-fit:cover;  border:1px solid var(--hairline); border-radius:4px;  filter:none; image-rendering: auto; display:block;}
 @keyframes marquee-left{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
 @keyframes marquee-right{ from{ transform:translateX(-50%); } to{ transform:translateX(0); } }
 .marquee-row:hover .marquee-track{ animation-play-state:paused; }
+.photography-section.marquee-active .marquee-track{  animation-play-state:running;}
 
 .photo-gallery{  margin-top:56px;  display:grid; grid-template-columns:repeat(3,1fr); gap:10px;}
 .photo-tile{  position:relative; aspect-ratio:1/1; overflow:hidden;  border:1px solid var(--hairline); border-radius:4px; transition:transform .25s ease, border-color .25s ease;  will-change:transform;  transform:translateZ(0);}
@@ -1080,7 +1081,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
 <section id="work">
   <div class="ambient amber" style="top:-120px; right:-140px;" aria-hidden="true"></div>
   <div class="wrap">
-    <div class="divider reveal"><span class="num">03</span><span class="label">FEATURED WORK</span><span class="line"></span></div>
+    <div class="divider reveal"><span class="num">03</span><span class="label">FEATURED WORKS</span><span class="line"></span></div>
 
     <!-- 1st Project/ Work --> 
     <div class="flagship reveal">
@@ -1482,7 +1483,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
 
   <div class="wrap" style="margin-top:56px;">
     <div class="feature-head reveal">
-      <div class="intro-label">FEATURED WORK — 04</div>
+      <div class="intro-label">EXTRACURRICULAR ACTIVITIES</div>
       <h2 class="feature-title">Photography</h2>
     </div>
 
@@ -1508,7 +1509,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
 <section class="feature-section" id="music">
   <div class="wrap">
     <div class="feature-head reveal">
-      <div class="intro-label">FEATURED WORK — 05</div>
+      <div class="intro-label">MUSIC ARTWORKS</div>
       <h2 class="feature-title">Music Production</h2>
       <p class="feature-sub">
         A few tracks I've written and produced. Tap a track to play it.
@@ -1575,7 +1576,7 @@ footer{ display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; p
 <section class="feature-section" id="notepad">
   <div class="wrap">
     <div class="feature-head reveal">
-      <div class="intro-label">FEATURED WORK — 06</div>
+      <div class="intro-label">MINI BLOG</div>
       <h2 class="feature-title">Notepad</h2>
       <p class="feature-sub">
         Loose thoughts, ideas and sketches — not polished write-ups, just where
@@ -1969,8 +1970,34 @@ const TRACKS = [
       });
     });
   });
-</script>
 
+// NEW: Prepare loading for photography section
+document.addEventListener("DOMContentLoaded", () => {
+
+  const photographySection = document.querySelector(".photography-section");
+
+  if (!photographySection) return;
+
+  const observer = new IntersectionObserver((entries) => {
+
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+        photographySection.classList.add("marquee-active");
+      } else {
+        photographySection.classList.remove("marquee-active");
+      }
+
+    });
+
+  }, {
+    rootMargin: "300px 0px",
+    threshold: 0
+  });
+
+  observer.observe(photographySection);
+
+});
 </script>
 
 </body>
