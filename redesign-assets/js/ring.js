@@ -25,7 +25,7 @@
    If left/right ever feels reversed, flip CFG.hoverDir below (±1).
 
    ADD A CARD: copy one <a class="ring__item"> block in
-   index.redesign.html (order = wheel position). Set
+   index.html (order = wheel position). Set
    href / data-name / data-desc / aria-label / media.
    See redesign-assets/README-ring.md.
    ============================================================ */

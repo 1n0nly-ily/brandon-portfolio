@@ -1,20 +1,20 @@
 # The landing ring — how to add / change cards
 
-The rotating carousel on `index.redesign.html` is **data-driven from the HTML**.
+The rotating carousel on `index.html` is **data-driven from the HTML**.
 The script (`redesign-assets/js/ring.js`) just reads whatever `.ring__item`
 elements it finds and solves the geometry for that count. There is no list of
 cards to keep in sync anywhere else.
 
 ## Add a new project card
 
-1. Open `index.redesign.html`, find `<div class="ring" id="ring">`.
+1. Open `index.html`, find `<div class="ring" id="ring">`.
 2. Copy one whole `<a class="ring__item"> … </a>` block and paste it as the
    last child (order = display order around the ring).
 3. Edit these five things:
 
    | part | what to put |
    |------|-------------|
-   | `href` | where the card links — a section page, or `work.redesign.html#some-id` |
+   | `href` | where the card links — a section page, or `work.html#some-id` |
    | `data-name` | the big label (Fraunces) shown at the bottom when this card is front — keep it short |
    | `data-desc` | the 3–5 word line under it (e.g. `Supersonic wake · Mach 3`) |
    | `aria-label` on the `<a>` | full sentence for screen readers |
