@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="WEBP/Brandon.jpg" type="image/x-icon">
+<title>Music — Brandon Yuen</title>
+<meta name="description" content="Music by Brandon Yuen — three original beats and flips as a visual archive. Each track opens in place with a live audio-reactive waveform.">
+
+<script>document.documentElement.classList.add('js');</script>
+<noscript><style>#loader{display:none!important}.stage,.reveal{opacity:1!important;transform:none!important}
+.mx-track__panelwrap{grid-template-rows:1fr!important}.mx-track__inner{opacity:1!important;transform:none!important;filter:none!important}</style></noscript>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&family=Marcellus&family=Parisienne&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="redesign-assets/css/core.css">
+</head>
+<body data-page="music.redesign.html" class="music-page">
+
+<div class="loader loader--center" id="loader" role="status" aria-live="polite" aria-label="Loading"
+     data-stages="POWERING THE DESK|WARMING THE CONVERTERS|LEAVING THE GROUND|CLEARING THE ATMOSPHERE|MAKING ORBIT|READY">
+  <canvas class="mx-scene" aria-hidden="true"></canvas>
+  <div class="loader__mid">
+    <span class="loader__word loader__word--sig"><span>Brandon Yuen</span></span>
+    <p class="loader__tag">Beats, flips and loops — made in the margins of engineering.</p>
+  </div>
+  <span class="loader__coord" aria-hidden="true">EARTH &middot; SYDNEY &middot; 33.8688&deg; S&nbsp;&nbsp;151.2093&deg; E</span>
+  <div class="loader__meter">
+    <span class="loader__bar"></span>
+    <span class="loader__read">Loading <span class="loader__count"><b>000</b><sup>%</sup></span></span>
+    <span class="loader__status">Initialising</span>
+  </div>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="railtrack" aria-hidden="true"><i></i></div>
+
+<header class="site-header">
+  <a class="brandmark" href="index.redesign.html"><b>Brandon</b><i>Yuen</i></a>
+  <nav class="hnav" aria-label="Primary">
+    <a href="work.redesign.html">Projects &amp; Featured Works</a>
+    <a href="photography.redesign.html">Photography</a>
+    <a href="music.redesign.html">Music</a>
+    <a href="about.redesign.html">About &amp; Notes</a>
+  </nav>
+  <span class="avail"><i aria-hidden="true"></i><span>Open to roles — Sydney, AU</span></span>
+  <button class="hmenu" aria-expanded="false" aria-label="Open menu">
+    <span class="hmenu__label hmenu__label--open">Menu</span>
+    <span class="hmenu__label hmenu__label--close">Close</span>
+  </button>
+</header>
+
+<nav class="mnav" aria-label="Mobile">
+  <a href="work.redesign.html">Projects &amp; Featured Works</a>
+  <a href="photography.redesign.html">Photography</a>
+  <a href="music.redesign.html">Music</a>
+  <a href="about.redesign.html">About &amp; Notes</a>
+</nav>
+
+<!-- ===== cosmic zoom-out hero (scroll-pinned; music-hero.js) ===== -->
+<section class="mx-hero-scroll" id="mx-hero-scroll">
+  <div class="mx-hero" id="mx-hero">
+    <canvas class="mx-hero__scene" aria-hidden="true"></canvas>
+    <div class="mx-hero__inner">
+      <span class="mx-hero__coord" aria-hidden="true">EARTH &middot; SYDNEY &middot; 33.8688&deg; S&nbsp;&nbsp;151.2093&deg; E</span>
+      <span class="mx-hero__sig">Brandon Yuen</span>
+      <p class="mx-hero__tag">Beats, flips and loops — made in the margins of engineering.</p>
+    </div>
+    <a class="mx-hero__cue" href="#mx-list">Scroll &mdash; or skip to the music</a>
+    <p class="mx-hero__act" id="mx-hero-act" aria-live="polite">Low Earth orbit</p>
+  </div>
+</section>
+
+<main class="shell">
+
+  <!-- ===== masthead ===== -->
+  <section class="page-top" id="top">
+    <a class="back-link" href="index.redesign.html"><svg viewBox="0 0 12 12" fill="none"><path d="M9 3 3 9M3 9h5M3 9V4" stroke="currentColor" stroke-width="1.3"/></svg> The Index</a>
+    <span class="kicker stage">Sound — Production Archive</span>
+    <h1 class="display d-1 stage">Music</h1>
+    <p class="standfirst stage">Three tracks I made outside of engineering — two flips and an original beat. Pick a row and it opens where it sits: cover, transport, and a live waveform that reads the audio and draws it back at you. A rough archive, not a release. Headphones help.</p>
+  </section>
+
+  <p class="mx-ledger-label reveal">Onboard Audio — three tracks</p>
+
+  <!-- =========================================================
+       THE LEDGER
+       Edit a track's on-screen NAME in  data-title="…"  AND the
+       matching  <span class="mx-track__name">…</span>  below it.
+       data-note="…"  is the one-line description under the waveform.
+       Leave  data-src  and  data-cover  (the file paths) untouched.
+       ========================================================= -->
+  <ol class="mx-list" id="mx-list">
+
+    <li class="mx-track" id="mx-1"
+        data-title="Winetfye"
+        data-src="WEBP/Music Production/winetfyenb-flip.mp3"
+        data-cover="WEBP/Music Production/2.webp"
+        data-note="nb flip — slowed, re-chopped, new drums">
+      <h2 class="mx-track__title-h">
+        <button class="mx-track__head" type="button" aria-expanded="false" aria-controls="mx-1-panel">
+          <span class="mx-track__n">01</span>
+          <span class="mx-track__name">Winetfye</span>
+          <span class="mx-track__tail">
+            <span class="mx-track__dur" data-dur>—:—</span>
+            <span class="mx-track__glyph" aria-hidden="true">&#9654;</span>
+          </span>
+        </button>
+      </h2>
+    </li>
+
+    <li class="mx-track" id="mx-2"
+        data-title="Pianoflip"
+        data-src="WEBP/Music Production/Pianoflip.mp3"
+        data-cover="WEBP/Music Production/3.webp"
+        data-note="piano loop flipped into a half-time beat">
+      <h2 class="mx-track__title-h">
+        <button class="mx-track__head" type="button" aria-expanded="false" aria-controls="mx-2-panel">
+          <span class="mx-track__n">02</span>
+          <span class="mx-track__name">Pianoflip</span>
+          <span class="mx-track__tail">
+            <span class="mx-track__dur" data-dur>—:—</span>
+            <span class="mx-track__glyph" aria-hidden="true">&#9654;</span>
+          </span>
+        </button>
+      </h2>
+    </li>
+
+    <li class="mx-track" id="mx-3"
+        data-title="Pluggnb"
+        data-src="WEBP/Music Production/Twice_Fancy_Plug.mp3"
+        data-cover="WEBP/Music Production/4.webp"
+        data-note="original — plugg / nb crossover, 140bpm">
+      <h2 class="mx-track__title-h">
+        <button class="mx-track__head" type="button" aria-expanded="false" aria-controls="mx-3-panel">
+          <span class="mx-track__n">03</span>
+          <span class="mx-track__name">Pluggnb</span>
+          <span class="mx-track__tail">
+            <span class="mx-track__dur" data-dur>—:—</span>
+            <span class="mx-track__glyph" aria-hidden="true">&#9654;</span>
+          </span>
+        </button>
+      </h2>
+    </li>
+
+  </ol>
+
+  <div>
+    <p class="mx-keys reveal">
+      <span><kbd>Space</kbd> play / pause</span>
+      <span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> change track</span>
+      <span><kbd>&larr;</kbd> <kbd>&rarr;</kbd> seek 5s</span>
+      <span><kbd>Esc</kbd> clear</span>
+      <span><kbd>+</kbd> <kbd>&minus;</kbd> <kbd>M</kbd> volume</span>
+      <span>Click the waveform to scrub</span>
+    </p>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <p class="foot-big reveal">Back to <a class="link" href="index.redesign.html"><em>the index</em></a>.</p>
+  <div class="foot-cols">
+    <div class="foot-col">
+      <h4>Navigate</h4>
+      <a href="index.redesign.html">The Index</a>
+      <a href="work.redesign.html">Projects &amp; Featured Works</a>
+      <a href="photography.redesign.html">Photography</a>
+      <a href="music.redesign.html">Music</a>
+      <a href="about.redesign.html">About &amp; Notes</a>
+    </div>
+    <div class="foot-col">
+      <h4>Elsewhere</h4>
+      <a href="mailto:yuenzulniro25@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/tsan-hoi-zulniro-brandon-yuen-83b472233" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+      <a href="https://brand0nyuen.wixsite.com/portfolio" target="_blank" rel="noopener">Archive (Wix)</a>
+    </div>
+  </div>
+  <div class="foot-fine"><span>© 2026 Brandon Yuen</span><span>Sydney, Australia</span></div>
+</footer>
+
+<script src="redesign-assets/js/music-loader.js"></script>
+<script src="redesign-assets/js/music-hero.js"></script>
+<script src="redesign-assets/vendor/gsap.min.js"></script>
+<script src="redesign-assets/vendor/ScrollTrigger.min.js"></script>
+<script src="redesign-assets/js/app.js"></script>
+<script src="redesign-assets/js/music.js"></script>
+</body>
+</html>

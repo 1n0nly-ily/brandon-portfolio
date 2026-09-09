@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="WEBP/Brandon.jpg" type="image/x-icon">
+<title>Work — Brandon Yuen</title>
+<meta name="description" content="Engineering work by Brandon Yuen — graduation thesis (Mach 3 wake CFD), kit-plane aircraft design, active space-debris removal mission planning, CFD studies, CAD and Qantas cabin engineering.">
+
+<script>document.documentElement.classList.add('js');</script>
+<noscript><style>#loader{display:none!important}.stage,.reveal{opacity:1!important;transform:none!important}</style></noscript>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;1,9..144,400&family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="redesign-assets/css/core.css">
+</head>
+<body data-page="work.redesign.html">
+
+<div class="loader" id="loader" role="status" aria-live="polite" aria-label="Loading">
+  <div class="loader__top">
+    <span class="loader__label">Brandon Yuen — Work</span>
+    <span class="loader__label">Sydney, AU</span>
+  </div>
+  <div class="loader__mid">
+    <span class="loader__word"><span>Engineering</span></span>
+  </div>
+  <div class="loader__bottom">
+    <span class="loader__count"><b>000</b><sup>%</sup></span>
+    <span class="loader__status">Initialising</span>
+  </div>
+  <span class="loader__bar"></span>
+</div>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="railtrack" aria-hidden="true"><i></i></div>
+
+<header class="site-header">
+  <a class="brandmark" href="index.redesign.html"><b>Brandon</b><i>Yuen</i></a>
+  <nav class="hnav" aria-label="Primary">
+    <a href="work.redesign.html">Projects &amp; Featured Works</a>
+    <a href="photography.redesign.html">Photography</a>
+    <a href="music.redesign.html">Music</a>
+    <a href="about.redesign.html">About &amp; Notes</a>
+  </nav>
+  <span class="avail"><i aria-hidden="true"></i><span>Open to roles — Sydney, AU</span></span>
+  <button class="hmenu" aria-expanded="false" aria-label="Open menu">
+    <span class="hmenu__label hmenu__label--open">Menu</span>
+    <span class="hmenu__label hmenu__label--close">Close</span>
+  </button>
+</header>
+
+<nav class="mnav" aria-label="Mobile">
+  <a href="work.redesign.html">Projects &amp; Featured Works</a>
+  <a href="photography.redesign.html">Photography</a>
+  <a href="music.redesign.html">Music</a>
+  <a href="about.redesign.html">About &amp; Notes</a>
+</nav>
+
+<main class="shell">
+
+  <!-- ===== masthead ===== -->
+  <section class="page-top" id="top">
+    <a class="back-link" href="index.redesign.html"><svg viewBox="0 0 12 12" fill="none"><path d="M9 3 3 9M3 9h5M3 9V4" stroke="currentColor" stroke-width="1.3"/></svg> The Index</a>
+    <span class="kicker stage">Chapter 01 — Featured Works</span>
+    <h1 class="display d-1 stage">Engineering</h1>
+    <p class="standfirst stage">Six projects across research, aircraft design, orbital mechanics, simulation, mechanical CAD and industry practice — the through-line is moving between the model and the physical thing, then working out why they disagree.</p>
+  </section>
+
+  <nav class="hnav chapter-nav" aria-label="In this chapter">
+    <a href="#research-thesis" data-spy-target="research-thesis">Thesis</a>
+    <a href="#aero4110" data-spy-target="aero4110">AERO4110</a>
+    <a href="#space-debris" data-spy-target="space-debris">Space Debris</a>
+    <a href="#cfd" data-spy-target="cfd">CFD</a>
+    <a href="#cad" data-spy-target="cad">CAD</a>
+    <a href="#qantas" data-spy-target="qantas">Qantas</a>
+  </nav>
+
+  <!-- ========================================================
+       01 · GRADUATION THESIS
+       ======================================================== -->
+  <article class="article" id="research-thesis" data-spy>
+    <div class="article__head reveal">
+      <div class="article__meta">
+        <span class="fig-no">Project. 01</span>
+        <span class="mono">Graduation Thesis — School of Mechanical &amp; Manufacturing Engineering, UNSW</span>
+        <span class="mono">RANS &amp; DES · Mach 3.0</span>
+      </div>
+      <h2>Supersonic Bluff Body Wake Dynamics</h2>
+    </div>
+
+    <div class="article__lede reveal">
+      <p class="standfirst">High-fidelity compressible-flow CFD of a bluff body wake at Mach 3, with structured mesh refinement and spectral / statistical post-processing in MATLAB. Detached Eddy Simulation resolved the recirculation and vortex-shedding structure at a fidelity RANS couldn't reach — reducing predicted wake thickness by 34.5% against baseline turbulence models and holding up against literature and experimental benchmarks.</p>
+      <div class="tags">
+        <span class="tag">ANSYS Fluent</span><span class="tag">MATLAB</span><span class="tag">DES / RANS</span><span class="tag">Compressible CFD</span>
+      </div>
+    </div>
+
+    <figure class="figure figure--wide reveal" data-parallax="5">
+      <video autoplay muted loop playsinline preload="metadata">
+        <source src="WEBP/DES.mp4" type="video/mp4">
+      </video>
+      <figcaption><span class="plate-label">Detached Eddy Simulation — wake</span><span class="plate-text">Time-resolved density field through the recirculation and shedding region.</span></figcaption>
+    </figure>
+
+    <blockquote class="pull reveal">Small geometric changes at the trailing edge change the whole downstream picture.</blockquote>
+
+    <div class="plate-duo reveal">
+      <figure class="figure">
+        <img src="WEBP/thesis/schlieren-des-vs-rans.webp" alt="Schlieren-style density gradient comparison between k-omega RANS and DES turbulence models" loading="lazy">
+        <figcaption><span class="plate-label">RANS vs. DES — wake thickness</span><span class="plate-text">Simulated schlieren imagery shows what the switch to DES actually bought me: the RANS wake stays smooth and steady, while DES resolves the real turbulent structure. That extra fidelity is what drove the wake thickness down from 1.97&nbsp;mm to 1.29&nbsp;mm — a 34.5% reduction.</span></figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="WEBP/thesis/psd-pressure.webp" alt="Contour plots of power spectral density of pressure across the wake at successive timesteps" loading="lazy">
+        <figcaption><span class="plate-label">Power spectral density — pressure</span><span class="plate-text">Tracking the pressure spectrum downstream isolates where the wake actually organises into periodic shedding. The energy concentrates between x/d 3.5–6, marking the vortex-shedding region I used to define the dominant Strouhal frequency.</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="plate-duo reveal">
+      <figure class="figure">
+        <img src="WEBP/thesis/wake-velocity-fluct.webp" alt="X and Y velocity fluctuation spectra at four points in the wake" loading="lazy">
+        <figcaption><span class="plate-label">Velocity fluctuation spectra</span><span class="plate-text">Four probe points through the wake show how the fluctuation energy decays with distance from the body. Both components carry a negative gradient, but the near-wake points (1 and 3) run consistently hotter — the recirculation zone doing what recirculation zones do.</span></figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="WEBP/thesis/injector-comparison.webp" alt="Mach number contour and streamline comparison between triangular and modified strut injector geometries" loading="lazy">
+        <figcaption><span class="plate-label">Geometry study — injector trailing edge</span><span class="plate-text">Swapping a triangular trailing edge for a modified strut halves the wake width for a near-identical subsonic core. A reminder that in supersonic flow, small geometric changes at the trailing edge change the whole downstream picture.</span></figcaption>
+      </figure>
+    </div>
+
+    <p style="margin-top:26px"><a class="arrow-link" href="https://brand0nyuen.wixsite.com/portfolio/portfolio-collections/my-portfolio/graduation-thesis" target="_blank" rel="noopener">Read the full write-up <svg viewBox="0 0 12 12" fill="none"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" stroke-width="1.3"/></svg></a></p>
+  </article>
+
+  <!-- ========================================================
+       02 · AERO4110 — KIT-PLANE AIRCRAFT DESIGN
+       ======================================================== -->
+  <article class="article" id="aero4110" data-spy>
+    <div class="article__head reveal">
+      <div class="article__meta">
+        <span class="fig-no">Project. 02</span>
+        <span class="mono">AERO4110 Design</span>
+        <span class="mono">FAA Part 23</span>
+      </div>
+      <h2>Kit-Plane Aircraft Design</h2>
+    </div>
+
+    <div class="article__lede reveal">
+      <p class="standfirst">Full-aircraft design study for a two-seat kit-plane, guided by a Request for Proposal specifying range, endurance at altitude, weather adaptability and take-off / landing parameters. Over ten weeks the Wombat Aerospace team developed the Kingfisher 210 — a bush plane built around structural strength, fuel efficiency and ease of maintenance for Australian farmers and recreational pilots.</p>
+      <div class="tags">
+        <span class="tag">Xfoil</span><span class="tag">CFD</span><span class="tag">FEA</span><span class="tag">Excel</span><span class="tag">XFLR5 / Flow5</span><span class="tag">MATLAB</span>
+      </div>
+    </div>
+
+    <figure class="figure figure--wide reveal" data-parallax="5">
+      <video autoplay muted loop playsinline preload="metadata">
+        <source src="WEBP/AERO4110 Photos/AircraftAni2 - Made with Clipchamp.mp4" type="video/mp4">
+      </video>
+      <figcaption><span class="plate-label">Kingfisher 210 — configuration</span><span class="plate-text">Full-aircraft layout study, internal arrangement and control-surface sizing.</span></figcaption>
+    </figure>
+
+    <div class="prose reveal" style="margin-bottom:22px">
+      <p><strong>Role within the project.</strong> Led the design and analysis of aircraft Weight &amp; Balance, Stability, internal layout, fuselage and tail-wing AOA. Developed flight-characteristic simulations and assessed compliance with CASA, FAA Part 23 and EASA standards. Used XFOIL, XFLR5, Flow5 and MATLAB for lift, drag and stability analysis, while applying anthropometric and ergonomic data to optimise the internal layout.</p>
+    </div>
+
+    <div class="plate-duo reveal">
+      <figure class="figure">
+        <div class="card-diagram" aria-hidden="true">
+          <svg viewBox="0 20 400 225" fill="none">
+            <path d="M20,150 L380,150" stroke="var(--hairline-strong)" stroke-width="1"/>
+            <path d="M40,150 C55,128 95,115 145,116 C205,117 275,132 360,150" fill="none" stroke="var(--amber)" stroke-width="1.4"/>
+            <path d="M40,150 C75,158 105,169 145,170 C185,171 225,165 265,159 C305,153 335,151 360,150" fill="none" stroke="var(--amber)" stroke-width="1.4" opacity="0.55"/>
+            <line x1="40" y1="150" x2="360" y2="150" stroke="var(--ice)" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>
+            <text x="175" y="142" font-family="IBM Plex Mono" font-size="9" fill="var(--text-tertiary)">CHORD</text>
+          </svg>
+        </div>
+        <figcaption><span class="plate-label">Parametric study</span><span class="plate-text">The mean aerodynamic chord (MAC) was one of the hardest aspects to justify. Initial estimates from Raymer and Roskam were progressively refined through weight-distribution and stability analyses, leading to a more detailed aerodynamic assessment — maintaining stability was critical to pilot and passenger safety and to the aircraft's ability to achieve and hold flight throughout its mission. The analysis was iterative, each refinement incorporating better estimates of weight, fuel distribution and propulsion characteristics.</span></figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="WEBP/AERO4110 Photos/EngDrawing.webp" alt="Engineering drawing of the final flight control surfaces" loading="lazy">
+        <figcaption>
+          <span class="plate-label">Engineering drawing</span>
+          <span class="plate-text">Final flight-control-surface design specifications.</span>
+          <div class="spec-tables">
+            <div class="spec-group">
+              <div class="spec-title">Wings</div>
+              <table class="spec-table"><tbody>
+                <tr><th>Aerofoil</th><td>NACA 2412</td></tr>
+                <tr><th>Planform Area</th><td>190 ft²</td></tr>
+                <tr><th>Aspect Ratio</th><td>7</td></tr>
+                <tr><th>Taper Ratio</th><td>1</td></tr>
+                <tr><th>Wing Span</th><td>36 ft</td></tr>
+                <tr><th>Sweep</th><td>0°</td></tr>
+                <tr><th>Angle of Incidence</th><td>3.5°</td></tr>
+                <tr><th>Twist</th><td>0°</td></tr>
+                <tr><th>Dihedral</th><td>0°</td></tr>
+                <tr><th>Wing Loading</th><td>12.89 lb/ft²</td></tr>
+                <tr><th>MAC from Nose</th><td>5.25 ft</td></tr>
+              </tbody></table>
+            </div>
+            <div class="spec-group">
+              <div class="spec-title">Horz. Stab</div>
+              <table class="spec-table"><tbody>
+                <tr><th>Aerofoil</th><td>NACA 0012</td></tr>
+                <tr><th>Planform Area</th><td>32.4 ft²</td></tr>
+                <tr><th>Aspect Ratio</th><td>4</td></tr>
+                <tr><th>Taper Ratio</th><td>0.7</td></tr>
+                <tr><th>Tail Span</th><td>11.4 ft</td></tr>
+                <tr><th>Tail root chord</th><td>3.3 ft</td></tr>
+                <tr><th>Tail tip chord</th><td>2.3 ft</td></tr>
+                <tr><th>Sweep</th><td>0°</td></tr>
+                <tr><th>Tail Moment Arm</th><td>15.2 ft</td></tr>
+                <tr><th>Tail Volume Coef</th><td>0.5</td></tr>
+              </tbody></table>
+            </div>
+            <div class="spec-group">
+              <div class="spec-title">Vert. Stab</div>
+              <table class="spec-table"><tbody>
+                <tr><th>Aerofoil</th><td>NACA 0012</td></tr>
+                <tr><th>Planform Area</th><td>18.1 ft²</td></tr>
+                <tr><th>Aspect Ratio</th><td>1.4</td></tr>
+                <tr><th>Taper Ratio</th><td>1</td></tr>
+                <tr><th>Tail Span</th><td>5 ft</td></tr>
+                <tr><th>Tail root chord</th><td>3.6 ft</td></tr>
+                <tr><th>Tail tip chord</th><td>3.6 ft</td></tr>
+                <tr><th>Sweep</th><td>20°</td></tr>
+                <tr><th>Tail Moment Arm</th><td>15.2 ft</td></tr>
+                <tr><th>Tail Volume Coef</th><td>0.04</td></tr>
+              </tbody></table>
+            </div>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="plate-duo reveal">
+      <figure class="figure">
+        <img src="WEBP/AERO4110 Photos/FlightEnv.webp" alt="Flight envelope diagram" loading="lazy">
+        <figcaption><span class="plate-label">Flight envelope</span><span class="plate-text">A flight envelope based on the given criteria and airspeed estimations from Raymer.</span></figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="WEBP/AERO4110 Photos/CGshift.webp" alt="Centre of gravity shift as fuel depletes" loading="lazy" decoding="async">
+        <figcaption><span class="plate-label">CG envelope</span><span class="plate-text">MATLAB and Raymer's formula for automatic calculation, showing the centre of gravity shifting backwards as fuel depletes.</span></figcaption>
+      </figure>
+    </div>
+
+    <figure class="figure reveal" data-parallax="4">
+      <img src="WEBP/AERO4110 Photos/Figure for -2.25deg stab justification.webp" alt="Flow5 stability simulation for -2.25 degree horizontal stabiliser" loading="lazy" decoding="async">
+      <figcaption><span class="plate-label">Flow5 stability simulation</span><span class="plate-text">Concatenated XFLR5 (2D wing) to Flow5 (full aircraft) for the 3D stability analysis (−2.25° horizontal stabiliser) justification. A systematic approach to finding a suitable CG and stability properties by experimenting with different weight distributions and aerodynamic properties.</span></figcaption>
+    </figure>
+
+    <p style="margin-top:26px"><a class="arrow-link" href="https://brand0nyuen.wixsite.com/portfolio/portfolio-collections/my-portfolio/light-aircraft-design-kit-plane" target="_blank" rel="noopener">View full write-up <svg viewBox="0 0 12 12" fill="none"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" stroke-width="1.3"/></svg></a></p>
+  </article>
+
+  <!-- ========================================================
+       03 · SPACE DEBRIS REMOVAL
+       ======================================================== -->
+  <article class="article" id="space-debris" data-spy>
+    <div class="article__head reveal">
+      <div class="article__meta">
+        <span class="fig-no">Project. 03</span>
+        <span class="mono">Space Debris Removal</span>
+        <span class="mono">Orbital Mechanics &amp; Rendezvous</span>
+      </div>
+      <h2>Space Debris Removal — Mission Planning</h2>
+    </div>
+
+    <div class="article__lede reveal">
+      <p class="standfirst">Designed an orbital rendezvous mission from Australia — determining launch epoch, manoeuvre ΔV and timing requirements to intercept and remove a defunct Australian satellite in Low Earth Orbit.</p>
+      <div class="tags">
+        <span class="tag">GMAT</span><span class="tag">MATLAB</span><span class="tag">Excel</span><span class="tag">Epoch · ΔV · Rendezvous</span>
+      </div>
+    </div>
+
+    <figure class="figure figure--wide reveal" data-parallax="5">
+      <video autoplay muted loop playsinline preload="metadata">
+        <source src="WEBP/AERO9500/GMATsim - Made with Clipchamp.mp4" type="video/mp4">
+      </video>
+      <figcaption><span class="plate-label">GMAT simulation — transfer &amp; rendezvous</span><span class="plate-text">Propagated trajectory from launch through phasing to rendezvous with the target.</span></figcaption>
+    </figure>
+
+    <div class="prose reveal" style="margin-bottom:22px">
+      <p><strong>The growing space-debris problem.</strong> The increasing number of satellites in orbit is increasing the likelihood of collisions and the quantity of space debris. Existing mitigation strategies — collision avoidance and end-of-life disposal — primarily prevent the creation of additional debris rather than removing objects already in orbit.</p>
+      <p>A potential long-term consequence is the Kessler Effect, where collisions generate additional debris, increasing the probability of further collisions and creating a cascading hazard for spacecraft operating in orbit. This creates an increasing need for active debris-removal technologies to improve the safety and longevity of future space operations.</p>
+      <p>Existing debris-removal concepts use a range of technologies — robotic capture mechanisms, nets, harpoons, extendable arms and laser-based systems. These approaches were investigated to determine a suitable concept for the proposed Australian debris-removal mission.</p>
+    </div>
+
+    <figure class="figure reveal" data-parallax="4">
+      <img src="WEBP/AERO9500/Orbit.webp" alt="Ground track of the proposed debris-removal mission" loading="lazy">
+      <figcaption>
+        <span class="plate-label">Ground track — proposed mission</span>
+        <span class="plate-text">A conceptual spacecraft mission was developed to perform the entire debris-removal operation. The spacecraft would launch from Australia and execute a sequence of orbital manoeuvres to rendezvous with a defunct Australian satellite in Low Earth Orbit. The mission design considered:</span>
+        <ul>
+          <li>Launch epoch and timing</li>
+          <li>Orbital parameters</li>
+          <li>Required manoeuvre ΔV</li>
+          <li>Transfer trajectory design</li>
+          <li>Rendezvous timing</li>
+          <li>Relative spacecraft positioning</li>
+          <li>Debris capture or removal methodology</li>
+        </ul>
+      </figcaption>
+    </figure>
+  </article>
+
+  <!-- ========================================================
+       04 · COMPUTATIONAL FLUID DYNAMICS
+       ======================================================== -->
+  <article class="article" id="cfd" data-spy>
+    <div class="article__head reveal">
+      <div class="article__meta">
+        <span class="fig-no">Project. 04</span>
+        <span class="mono">Simulation</span>
+        <span class="mono">Independent design &amp; research projects</span>
+      </div>
+      <h2>Computational Fluid Dynamics</h2>
+    </div>
+
+    <div class="article__lede reveal">
+      <p class="standfirst">Simulation work exploring flow behaviour, wake structures and aerodynamic performance across independent design and research projects.</p>
+      <div class="tags"><span class="tag">ANSYS Fluent</span><span class="tag">OpenFOAM</span><span class="tag">Post-processing</span></div>
+    </div>
+
+    <figure class="figure figure--wide reveal" data-parallax="5">
+      <img src="WEBP/CFD/Velocity.webp" alt="CFD velocity contour" loading="lazy">
+      <figcaption><span class="plate-label">Velocity contour — RANS solution</span></figcaption>
+    </figure>
+
+    <div class="plate-duo reveal">
+      <figure class="figure"><img src="WEBP/CFD/Pressure.webp" alt="Pressure distribution, transonic case" loading="lazy"><figcaption><span class="plate-text">Pressure distribution — transonic case</span></figcaption></figure>
+      <figure class="figure"><img src="WEBP/CFD/Pressure&Streamline1.webp" alt="Pressure distribution and streamline in z axis" loading="lazy"><figcaption><span class="plate-text">Pressure distribution &amp; streamline in z axis</span></figcaption></figure>
+      <figure class="figure"><img src="WEBP/CFD/Pressure&Streamline2.webp" alt="Pressure distribution and streamline in y axis" loading="lazy"><figcaption><span class="plate-text">Pressure distribution &amp; streamline in y axis</span></figcaption></figure>
+      <figure class="figure"><img src="WEBP/CFD/Pressure&Streamline3.webp" alt="Pressure distribution and streamline in x axis" loading="lazy"><figcaption><span class="plate-text">Pressure distribution &amp; streamline in x axis</span></figcaption></figure>
+      <figure class="figure"><img src="WEBP/CFD/Density.webp" alt="Density distribution" loading="lazy"><figcaption><span class="plate-text">Density distribution</span></figcaption></figure>
+      <figure class="figure"><img src="WEBP/CFD/FLU 3.webp" alt="Velocity streamlines visualisation" loading="lazy"><figcaption><span class="plate-text">Velocity streamlines visualisation</span></figcaption></figure>
+    </div>
+  </article>
+
+  <!-- ========================================================
+       05 · CAD / DESIGN
+       ======================================================== -->
+  <article class="article" id="cad" data-spy>
+    <div class="article__head reveal">
+      <div class="article__meta">
+        <span class="fig-no">Project. 05</span>
+        <span class="mono">Mechanical Design</span>
+        <span class="mono">Assemblies · components · fabrication drawings</span>
+      </div>
+      <h2>CAD / Design</h2>
+    </div>
+
+    <div class="article__lede reveal">
+      <p class="standfirst">Mechanical design and 3D modelling work, from full engine assemblies through to individual components and fabrication-ready drawings.</p>
+      <div class="tags"><span class="tag">SolidWorks</span><span class="tag">Fusion 360</span><span class="tag">Inventor</span><span class="tag">AutoCAD</span></div>
+    </div>
+
+    <figure class="figure figure--wide reveal" data-parallax="5">
+      <video controls poster="WEBP/CAD/Finished.webp" preload="none">
+        <source src="WEBP/CAD/RealJetEngine(1).mp4" type="video/mp4">
+      </video>
+      <figcaption><span class="plate-label">Turbofan engine — full assembly model</span></figcaption>
+    </figure>
+
+    <div class="plate-duo reveal">
+      <figure class="figure"><img src="WEBP/CAD/TurbineEngine.webp" alt="Small turbine model" loading="lazy"><figcaption><span class="plate-label">Small turbine model</span><span class="plate-text">Introduction to turbine-engine design.</span></figcaption></figure>
+      <figure class="figure"><img src="WEBP/CAD/FirstDayProgress.webp" alt="Turbine blades and internal shaft assembly" loading="lazy"><figcaption><span class="plate-label">Turbine blades</span><span class="plate-text">Turbine blade and internal shaft assembly modelled for 3D printing.</span></figcaption></figure>
+      <figure class="figure"><img src="WEBP/CAD/1.webp" alt="Small gear" loading="lazy"><figcaption><span class="plate-label">Small gear</span><span class="plate-text">Smooth-edge gear.</span></figcaption></figure>
+      <figure class="figure"><img src="WEBP/CAD/7.webp" alt="Fixture and jig design" loading="lazy"><figcaption><span class="plate-label">Fixture &amp; jig design</span><span class="plate-text">Custom fabrication jig for holding components during welding and assembly.</span></figcaption></figure>
+    </div>
+  </article>
+
+  <!-- ========================================================
+       06 · QANTAS — CABIN ENGINEER
+       ======================================================== -->
+  <article class="article" id="qantas" data-spy>
+    <div class="article__head reveal">
+      <div class="article__meta">
+        <span class="fig-no">Project. 06</span>
+        <span class="mono">Qantas Airways — Cabin Engineer</span>
+        <span class="mono">Design &amp; Drafting</span>
+      </div>
+      <h2>Qantas Engineering</h2>
+    </div>
+
+    <div class="article__lede reveal">
+      <p class="standfirst">Produced CAD for cabin reconfigurations and aircraft modifications in Draftsight and SolidWorks, managing concurrent design-documentation workflows across PDM and BOM updates under formal, CASA/EASA-compliant revision control.</p>
+      <div class="tags"><span class="tag">Draftsight</span><span class="tag">SolidWorks</span><span class="tag">PDM / BOM</span></div>
+    </div>
+
+    <figure class="figure figure--wide reveal" data-parallax="5">
+      <img src="WEBP/Qantas Work/IMG_1244.webp" alt="Qantas cabin engineering work" loading="lazy" decoding="async">
+      <figcaption><span class="plate-label">Cabin reconfiguration — drafting</span></figcaption>
+    </figure>
+
+    <div class="plate-duo reveal">
+      <figure class="figure">
+        <img src="WEBP/Qantas Work/X32750D1-093-00 G3F-1.webp" alt="Installation drawing G3F" loading="lazy" decoding="async">
+        <figcaption><span class="plate-label">Installation drawing</span><span class="plate-text">Production-ready drawing and installation documentation translated from technical requirements, under formal version control.</span></figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="WEBP/Qantas Work/X09652D1-093-00 G2AR-1.webp" alt="Installation drawing G2AR" loading="lazy" decoding="async">
+        <figcaption><span class="plate-label">Installation drawing</span><span class="plate-text">CASA/EASA-compliant revision control applied across every release to ensure engineering accuracy and minimise implementation risk.</span></figcaption>
+      </figure>
+    </div>
+
+    <p style="margin-top:26px"><a class="arrow-link" href="https://brand0nyuen.wixsite.com/portfolio/portfolio-collections/my-portfolio/qantas" target="_blank" rel="noopener">View full write-up <svg viewBox="0 0 12 12" fill="none"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" stroke-width="1.3"/></svg></a></p>
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <p class="foot-big reveal">Next — <a class="link" href="photography.redesign.html"><em>Photography</em></a>.</p>
+  <div class="foot-cols">
+    <div class="foot-col">
+      <h4>Navigate</h4>
+      <a href="index.redesign.html">The Index</a>
+      <a href="work.redesign.html">Projects &amp; Featured Works</a>
+      <a href="photography.redesign.html">Photography</a>
+      <a href="music.redesign.html">Music</a>
+      <a href="about.redesign.html">About &amp; Notes</a>
+    </div>
+    <div class="foot-col">
+      <h4>Elsewhere</h4>
+      <a href="mailto:yuenzulniro25@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/tsan-hoi-zulniro-brandon-yuen-83b472233" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+      <a href="https://brand0nyuen.wixsite.com/portfolio" target="_blank" rel="noopener">Archive (Wix)</a>
+    </div>
+  </div>
+  <div class="foot-fine"><span>© 2026 Brandon Yuen</span><span>Sydney, Australia</span></div>
+</footer>
+
+<script src="redesign-assets/vendor/gsap.min.js"></script>
+<script src="redesign-assets/vendor/ScrollTrigger.min.js"></script>
+<script src="redesign-assets/js/app.js"></script>
+</body>
+</html>
