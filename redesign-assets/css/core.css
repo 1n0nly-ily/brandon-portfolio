@@ -126,7 +126,8 @@ img,video{ max-width:100%; display:block; }
   max-width:46ch;
 }
 
-.prose p{ font-size:clamp(14.5px, 1vw, 16.5px); color:var(--text-secondary); margin-bottom:1.15em; max-width:64ch; }
+
+.prose p{ font-size:clamp(14.5px, 1vw, 16.5px); color:var(--text-secondary); margin-bottom:1.15em; max-width:none; width:100%;}
 .prose p strong, .prose p b{ color:var(--text-primary); font-weight:600; }
 .prose p:last-child{ margin-bottom:0; }
 .prose .lead::first-letter{
@@ -139,7 +140,8 @@ img,video{ max-width:100%; display:block; }
   font-family:var(--font-display); font-style:italic;
   font-size:clamp(19px, 2.2vw, 30px); line-height:1.34;
   color:var(--text-primary); letter-spacing:-.01em;
-  max-width:42ch;
+  max-width:none;
+  width:100%;
   border-top:1px solid var(--hairline-amber);
   border-bottom:1px solid var(--hairline-amber);
   padding:1em 0; margin-block:26px;
@@ -815,6 +817,33 @@ body.loading{ overflow:hidden; height:100vh; }
 }
 .figure figcaption ul li{ padding-left:20px; position:relative; }
 .figure figcaption ul li::before{ content:"—"; position:absolute; left:0; color:var(--amber); }
+
+/* project body bullet lists — amber dash markers, but the type matches the
+   .standfirst paragraph that sits under each <h2> (Fraunces, weight 400,
+   never bold). Applies to a bare <ul> in an article's lede or prose (no
+   class needed), or anywhere via <ul class="proj-list">. */
+.article__lede ul,
+.article .prose ul,
+.article > ul,
+ul.proj-list{
+  list-style:none; margin:16px 0 4px; padding:0;
+  display:flex; flex-direction:column; gap:8px;
+  font-family:var(--font-display); font-weight:400;
+  font-size:clamp(14px,1.15vw,16.5px); line-height:1.55;
+  color:var(--text-secondary); max-width:46ch;
+}
+.article__lede ul li,
+.article .prose ul li,
+.article > ul li,
+ul.proj-list li{ position:relative; padding-left:20px; }
+.article__lede ul li::before,
+.article .prose ul li::before,
+.article > ul li::before,
+ul.proj-list li::before{ content:"—"; position:absolute; left:0; color:var(--amber); }
+.article__lede ul li b, .article__lede ul li strong,
+.article .prose ul li b, .article .prose ul li strong,
+.article > ul li b, .article > ul li strong,
+ul.proj-list li b, ul.proj-list li strong{ color:var(--text-primary); font-weight:500; }
 
 .plate-duo{ display:grid; grid-template-columns:1fr; gap:18px; margin-block:22px; }
 @media (min-width:760px){ .plate-duo{ grid-template-columns:1fr 1fr; } }

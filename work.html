@@ -70,6 +70,7 @@
   <nav class="hnav chapter-nav" aria-label="In this chapter">
     <a href="#research-thesis" data-spy-target="research-thesis">Thesis</a>
     <a href="#aero4110" data-spy-target="aero4110">AERO4110</a>
+    <a href="#mech4620" data-spy-target="mech4620">MECH4620</a>
     <a href="#space-debris" data-spy-target="space-debris">Space Debris</a>
     <a href="#cfd" data-spy-target="cfd">CFD</a>
     <a href="#cad" data-spy-target="cad">CAD</a>
@@ -250,13 +251,102 @@
     <p style="margin-top:26px"><a class="arrow-link" href="https://brand0nyuen.wixsite.com/portfolio/portfolio-collections/my-portfolio/light-aircraft-design-kit-plane" target="_blank" rel="noopener">View full write-up <svg viewBox="0 0 12 12" fill="none"><path d="M3 9L9 3M9 3H4M9 3V8" stroke="currentColor" stroke-width="1.3"/></svg></a></p>
   </article>
 
+    <!-- ========================================================
+       03 · HEAT EXCHANGER DESIGN 
+       ======================================================== -->
+  <article class="article" id="mech4620" data-spy>
+    <div class="article__head reveal">
+      <div class="article__meta">
+        <span class="fig-no">Project. 03</span>
+        <span class="mono">Heat Exchanger Design &amp; Optimisation</span>
+        <span class="mono">CFD Simulation</span>
+      </div>
+      <h2>Cross Flow Heat Exchanger</h2>
+    </div>
+
+    <div class="article__lede reveal">
+      <ul>
+        <li>Design and optimised the crossflow heat exchanger with modifications and achieved a score of <b>100%</b></li>
+        <li>Conducted parametric studies and performance optimization of a crossflow heat exchanger using MATLAB and CFD</li>
+        <li>Performed large-scale data analysis with linear correlation compiler in CFD to predict performance trends.</li>
+        <li>Led a team in heat exchanger optimization, task coordination, oversight of technical analysis and evaluations</li>
+      </ul>
+      <div class="tags">
+        <span class="tag">ANSYS Fluent</span><span class="tag">MATLAB</span><span class="tag">RANS</span><span class="tag">Incompressible CFD</span>
+      </div>
+    </div>
+
+    <figure class="figure figure--wide reveal" data-parallax="5">
+      <img src="WEBP/MECH4620/Pic17.webp" alt="Initial cross flow heat exchanger design" loading="lazy" decoding="async">
+      <figcaption>
+        <span class="plate-label">Initial cross flow heat exchanger design</span><span class="plate-text">This study conducts a detailed CFD analysis on the discretization schemes and heat exchanger in various pipe configurations (outer diameter, fillet size and surface area etc). It was discovered that increasing the outer diameter correlates negatively with change in output air temperature. Model was analysed using the Shear Stress Transport model, which offered the optimum compromise between 𝑘 − 𝜀 and 𝑘 −𝜔 models. </span>
+        <p><span class="plate-text">It was discovered that using water as coolant and pipe architecture of a <b>fillet size of 12mm</b>, a <b>thickness of 0.5mm</b>, and a <b>pipe outer diameter of 22mm</b> provides the most effective heat exchange, resulting in the air outlet <b>temperature of 286.165K</b>.</span></p>
+      </figcaption>
+    </figure>
+
+    <!-- TODO Brandon: this section was cloned from the thesis. The pull-quote
+         and figure captions below are placeholders; images now point at
+         WEBP/MECH4620/ (Pic3/4/8/15) — swap and re-order for your real plots. -->
+    <blockquote class="pull reveal">TODO — a one-line takeaway from the heat-exchanger study.</blockquote>
+
+
+    <div class="plate-duo reveal">
+      <figure class="figure">
+        <img src="WEBP/MECH4620/Pic3.webp" alt="" loading="lazy" decoding="async">
+        <figcaption><span class="plate-label">Orientation 1</span><span class="plate-text">Oriented the coolant pipe vertically and increased the number of pipes to 11 while maintaining the inlet outlet distance from centreline and the pipe diameter.</span></figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="WEBP/MECH4620/Pic1.webp" alt="" loading="lazy" decoding="async">
+        <figcaption><span class="plate-label">Comparison of Discretization Schemes and Experimental Result</span><span class="plate-text">The Figure 1 shows the trend of temperature under different discretization schemes. The higher order scheme shows a large difference at the sensitive heat transfer region [0.04 − 0.1]𝑚, while upwind scheme provided results that resembled the experimental values most accurately. However, the scheme accuracy is hard to determine because experimental results lack data points. The outcome is opposite to the expected outcome. </span></figcaption>
+      </figure>
+    </div>
+
+    <div class="plate-duo reveal">
+      <figure class="figure">
+        <img src="WEBP/MECH4620/Pic2.webp" alt="" loading="lazy" decoding="async">
+        <figcaption><span class="plate-label">Effects on output parameters by changing coolant</span><span class="plate-text">Highlighting the meniscal decrease in turbulence frequency combined with the improved thermal properties caused the air outlet temperature to maintain the same.  It can be concluded that turbulence frequency and thermal properties are the most crucial factors affecting heat transfer efficiency. </span></figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="WEBP/MECH4620/Pic4.webp" alt="" loading="lazy" decoding="async">
+        <figcaption><span class="plate-label">Orientation 1 & 2 Version 2</span><span class="plate-text">Decreased pipe outer diameter to 18mm and fillet size to 16mm. Increased the distance of inlet and outlet from centreline.</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="plate-duo reveal">
+      <figure class="figure">
+        <img src="WEBP/MECH4620/Pic14.webp" alt="" loading="lazy" decoding="async">
+        <figcaption><span class="plate-label">Parameter Linear Correlation Matrix</span><span class="plate-text">It depicts the linear correlation matrix between all the input and output parameters. All output parameters have a 
+                                    negative correlation with the input parameters. Due to multiple outlier cases and varied thickness, the correlation between output parameters of turbulence and air outlet temperature became positive. And due to the exist of the optimum design parameters, correlations between input and output parameters have turning points. As turbulence 
+                                    increases throughout the coolant pipe, resulting in improved coolant fluid mixing and conduction. Moreover, the relationship between increase in total surface area and air outlet temperature cannot be determined. As a result, two optimised designs were created for comparison against the baseline case. </span></figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="WEBP/MECH4620/Pic8.webp" alt="" loading="lazy" decoding="async">
+        <figcaption><span class="plate-label">Comparison of Turbulence Eddy Frequency (Fillet 12mm and 10mm)</span><span class="plate-text">The high turbulence frequency of 14316.7𝑠 led to an air outlet temperature of 286.174𝐾 . Figure 11 demonstrates that using a decrease of 2mm fillet design significantly reduces the turbulence frequency to 137.3𝑠 , resulting a higher air outlet temperature of 286.24 𝐾compared to alternative fillet designs. </span></figcaption>
+      </figure>
+    </div>
+
+    <div class="plate-duo reveal">
+      <figure class="figure">
+        <img src="WEBP/MECH4620/Pic18.webp" alt="" loading="lazy" decoding="async">
+        <figcaption><span class="plate-label">Design 1</span><span class="plate-text">turbulence regions are concentrated near pipe bends, hence temperature reduces more efficiently due to the formation of eddies and vortices. These turbulences enhance the intensity of fluid flow, which promotes the circulation of hot air/cold coolant to the heat exchange surface, resulting in more uniform heat transfer. 
+                      The boundary and viscous layers become thinner and more dispersed as the turbulence intensity and frequency increase. However, high turbulence comes with a decrease in coolant flow efficiency, resulting a significant pressure drop. The only method of mitigation is to increase pumping power, which may produce unnecessary vibrations and stress to the coolant pipe, increasing the risk of cavitation and degrading heat exchanger performance.  </span></figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="WEBP/MECH4620/Pic15.webp" alt="" loading="lazy" decoding="async">
+        <figcaption><span class="plate-label">Design 2</span><span class="plate-text">As an experiment, increased surface area by adding additional pipelines, with same parameters. Even though there was an increase in turbulence eddy frequency, the temperature still increased by 0.029K. This is due to the coolant turbulence frequencies 
+                      are no longer concentrated at the outer fillet corners. Instead, they are concentrated at the inner fillet corners due to the decrease in flow diameter, thus, higher coolant flow velocity driving the fluid forward on the outer region of the flow as flow velocity was maintained. As a result, there is little flow recirculation to thoroughly mix coolant fluid and heat exchange.  </span></figcaption>
+      </figure>
+    </div>
+
+  </article>
+
   <!-- ========================================================
-       03 · SPACE DEBRIS REMOVAL
+       04 · SPACE DEBRIS REMOVAL
        ======================================================== -->
   <article class="article" id="space-debris" data-spy>
     <div class="article__head reveal">
       <div class="article__meta">
-        <span class="fig-no">Project. 03</span>
+        <span class="fig-no">Project. 04</span>
         <span class="mono">Space Debris Removal</span>
         <span class="mono">Orbital Mechanics &amp; Rendezvous</span>
       </div>
@@ -283,31 +373,73 @@
       <p>Existing debris-removal concepts use a range of technologies — robotic capture mechanisms, nets, harpoons, extendable arms and laser-based systems. These approaches were investigated to determine a suitable concept for the proposed Australian debris-removal mission.</p>
     </div>
 
+    <div class="plate-duo reveal">
+      <figure class="figure reveal" data-parallax="4">
+        <img src="WEBP/AERO9500/Orbit.webp" alt="Ground track of the proposed debris-removal mission" loading="lazy">
+        <figcaption>
+          <span class="plate-label">Ground track — proposed mission</span>
+          <span class="plate-text">A conceptual spacecraft mission was developed to perform the entire debris-removal operation. The spacecraft would launch from Australia and execute a sequence of orbital manoeuvres to rendezvous with a defunct Australian satellite in Low Earth Orbit. The mission design considered:</span>
+          <ul>
+            <li>Launch epoch and timing</li>
+            <li>Orbital parameters</li>
+            <li>Required manoeuvre ΔV</li>
+            <li>Transfer trajectory design</li>
+            <li>Rendezvous timing</li>
+            <li>Relative spacecraft positioning</li>
+            <li>Debris capture or removal methodology</li>
+          </ul>
+        </figcaption>
+      </figure>
+      <figure class="figure reveal" data-parallax="4">
+        <img src="WEBP/AERO9500/LaunchTrajectory.webp" alt="" loading="lazy">
+        <figcaption>
+          <span class="plate-label">DeOrbit Convergence</span>
+          <span class="plate-text">The mission trajectory was designed using orbital mechanics principles to determine the timing and ΔV requirements necessary for the spacecraft to rendezvous with the target.</span>
+          <span class="plate-text">Since Earth has a slight oblateness in the real world, the most realistic method to determine FedSat’s position vector in coordinates on Earth is to convert from a perifocal frame to a geocentric frame, then 
+              convert to geocentric Earth-centered Earth-fixed position and finally convert to geodetic coordinates. 
+              Hand calculations of the geodetic coordinates immediately after arriving at perigee are given, resulting in geodetic coordinates as, <b>L𝑎𝑡𝑖𝑡𝑢𝑑𝑒 = −9.33229° </b><b>L𝑜𝑛𝑔𝑡𝑖𝑡𝑢𝑑𝑒 = 245.968°</b>
+              Then using Google Maps, GMAT and STK, to fact check the coordinates 9.33229°𝑆, 114.0318°𝑊 shows that it is in fact located above the middle of the Pacific Ocean close to the calculated coordinates at 9.33229°𝑆, 119°𝑊.  
+          </span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="plate-duo reveal">
+      <figure class="figure reveal" data-parallax="4">
+        <img src="WEBP/AERO9500/OrbitTrend.webp" alt="" loading="lazy">
+        <figcaption>
+          <span class="plate-label">Orbit Trend</span>
+          <span class="plate-text">This shows the trend and continuous cycle that a satellite goes through at 200km altitude. As a result, the change in altitude can be assumed as 0km in 30 minutes.</span>
+        </figcaption>
+      </figure>
+      <figure class="figure reveal" data-parallax="4">
+        <img src="WEBP/AERO9500/DeOrbitConvergence.webp" alt="" loading="lazy">
+        <figcaption>
+          <span class="plate-label">Orbit Trail</span>
+          <span class="plate-text">The mission trajectory was designed using orbital mechanics principles to determine the timing and ΔV requirements necessary for the spacecraft to rendezvous with the target.</span>
+          <span class="plate-text">SUsed Epoch time to determine the launch timing required to achieve the desired orbital geometry. And Calculated the required ΔV and manoeuvre timing to transfer the spacecraft toward the target orbit.</span>
+          <span class="plate-text">The rendezvous timing is a critical factor in reducing the fuel, complex manoeuvres and mission time required. The waiting time (𝑇𝑤𝑎𝑖𝑡) is the time until the mission spacecraft initiates the Hohmann transfer to rendezvous with FedSat in one burn.</span>
+        </figcaption>
+      </figure>
+    </div>
     <figure class="figure reveal" data-parallax="4">
-      <img src="WEBP/AERO9500/Orbit.webp" alt="Ground track of the proposed debris-removal mission" loading="lazy">
+      <img src="WEBP/AERO9500/GroundTrack.webp" alt="" loading="lazy">
       <figcaption>
-        <span class="plate-label">Ground track — proposed mission</span>
-        <span class="plate-text">A conceptual spacecraft mission was developed to perform the entire debris-removal operation. The spacecraft would launch from Australia and execute a sequence of orbital manoeuvres to rendezvous with a defunct Australian satellite in Low Earth Orbit. The mission design considered:</span>
-        <ul>
-          <li>Launch epoch and timing</li>
-          <li>Orbital parameters</li>
-          <li>Required manoeuvre ΔV</li>
-          <li>Transfer trajectory design</li>
-          <li>Rendezvous timing</li>
-          <li>Relative spacecraft positioning</li>
-          <li>Debris capture or removal methodology</li>
-        </ul>
+        <span class="plate-label">Ground Track</span>
+        <span class="plate-text">Designed the trajectory required to reduce the relative position and velocity between the servicing spacecraft and orbital debris.</span>
+        <span class="plate-text">The spacecraft performs the proposed debris capture or deorbiting operation.</span>
+        <span class="plate-text">operation ground stations should be located near the region where orbital manoeuvres take place which is indicated with purple, blue, light green and pale green in the Figure. Since the co-planar rendezvous and debris release operation takes place over Norway, the ground station in Svalbard 78°𝑁 15°𝐸 will be used as it covers most of the north pole region   </span>
       </figcaption>
     </figure>
   </article>
 
   <!-- ========================================================
-       04 · COMPUTATIONAL FLUID DYNAMICS
+       05 · COMPUTATIONAL FLUID DYNAMICS
        ======================================================== -->
   <article class="article" id="cfd" data-spy>
     <div class="article__head reveal">
       <div class="article__meta">
-        <span class="fig-no">Project. 04</span>
+        <span class="fig-no">Project. 05</span>
         <span class="mono">Simulation</span>
         <span class="mono">Independent design &amp; research projects</span>
       </div>
@@ -335,12 +467,12 @@
   </article>
 
   <!-- ========================================================
-       05 · CAD / DESIGN
+       06 · CAD / DESIGN
        ======================================================== -->
   <article class="article" id="cad" data-spy>
     <div class="article__head reveal">
       <div class="article__meta">
-        <span class="fig-no">Project. 05</span>
+        <span class="fig-no">Project. 06</span>
         <span class="mono">Mechanical Design</span>
         <span class="mono">Assemblies · components · fabrication drawings</span>
       </div>
@@ -368,12 +500,12 @@
   </article>
 
   <!-- ========================================================
-       06 · QANTAS — CABIN ENGINEER
+       07 · QANTAS — CABIN ENGINEER
        ======================================================== -->
   <article class="article" id="qantas" data-spy>
     <div class="article__head reveal">
       <div class="article__meta">
-        <span class="fig-no">Project. 06</span>
+        <span class="fig-no">Project. 07</span>
         <span class="mono">Qantas Airways — Cabin Engineer</span>
         <span class="mono">Design &amp; Drafting</span>
       </div>
