@@ -255,8 +255,9 @@
   }
 
   /* ---- drag + hover ------------------------------------- */
-  var grabX = 0, grabRot = 0, moved = 0, hist = [];
+  var grabX = 0, grabRot = 0, moved = 0, hist = [], grabId = 0, captured = false;
 
+  viewport.addEventListener('dragstart', function (e) { e.preventDefault(); });
   viewport.addEventListener('pointerenter', function () { overStage = true; lastMoveT = now(); });
   viewport.addEventListener('pointerleave', function () { overStage = false; pendIdx = -1; });
 
@@ -265,8 +266,7 @@
     dragging = true; moved = 0; pendIdx = -1; snapIdx = -1;   // a drag releases a held card
     clearRelease();
     grabX = e.clientX; grabRot = rot; vel = 0;
-    viewport.classList.add('dragging');
-    try { viewport.setPointerCapture(e.pointerId); } catch (x) {}
+    grabId = e.pointerId; captured = false;
     hist = [{ x: e.clientX, t: now() }];
   });
 
@@ -277,6 +277,15 @@
       // micro-jitter the mouse/trackpad reports, which was falsely reading
       // as "you dragged" on an ordinary still click and swallowing it
       moved = Math.max(moved, Math.abs(e.clientX - grabX));
+      // Only capture the pointer once this is really a drag. Capturing on
+      // pointerdown re-targets the click event to the viewport, so a plain
+      // click on a card never reached the card's own click handler.
+      if (!captured && moved > 4) {
+        captured = true;
+        viewport.classList.add('dragging');
+        try { viewport.setPointerCapture(grabId); } catch (x) {}
+      }
+      if (!captured) return;
       rot = grabRot + (e.clientX - grabX) * DRAG_SENS;
       hist.push({ x: e.clientX, t: now() });
       if (hist.length > 6) hist.shift();
@@ -295,6 +304,8 @@
   function endDrag() {
     if (!dragging) return;
     dragging = false;
+    if (captured) { try { viewport.releasePointerCapture(grabId); } catch (x) {} }
+    captured = false;
     viewport.classList.remove('dragging');
     var a = hist[0], b = hist[hist.length - 1];
     if (a && b && b.t > a.t) {

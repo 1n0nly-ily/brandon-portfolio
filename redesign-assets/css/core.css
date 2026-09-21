@@ -437,6 +437,9 @@ body.loading{ overflow:hidden; height:100vh; }
   cursor:grab;
 }
 .ring-viewport.dragging{ cursor:grabbing; }
+/* the wheel is a control, not prose: no text/image selection highlight on click or double-click */
+.ringstage{ -webkit-user-select:none; user-select:none; }
+.ring__media img{ -webkit-user-drag:none; }
 
 .ring{
   position:absolute; left:50%; top:47%;
