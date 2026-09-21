@@ -33,11 +33,15 @@ Delete its `<a class="ring__item">` block. Nothing else.
 `ring.js` already protects against this:
 
 - **Radius grows with card count** — the ring pushes outward so the *gap between
-  cards* stays about the same. More cards ⇒ bigger circle, not tighter packing.
-- **Cards shrink past `CFG.refCount`** (currently 9) — gently, so 12–14 cards
+  cards* stays about the same (`CFG.chordFrac`, currently 1.28: higher = more air
+  between cards). More cards ⇒ bigger circle, not tighter packing.
+- **Cards shrink past `CFG.refCount`** (currently 11) — gently, so 12–14 cards
   still read fine.
 - Cards facing away are non-interactive and dimmed, so only the few near the
   front ever compete for attention.
+
+The small `01`…`NN` number on each card and the `01 / NN` counter under the wheel
+are both generated from card order by `ring.js` — you never edit them by hand.
 
 Practical ceiling: **~14 cards.** Beyond that they're small and far even with the
 auto-spacing — better to group them (e.g. a "Projects" card that opens a page

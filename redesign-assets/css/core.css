@@ -506,9 +506,10 @@ body.loading{ overflow:hidden; height:100vh; }
   transition:opacity .5s cubic-bezier(.32,.72,0,1);
 }
 .ring__tag{
-  position:absolute; left:12px; bottom:12px; z-index:2;
+  /* lives INSIDE .ring__card so it sits on its own card, not on the oversized hit box */
+  position:absolute; left:16px; bottom:14px; z-index:2;
   font-family:var(--font-mono); font-size:9px; letter-spacing:.14em; text-transform:uppercase;
-  color:var(--text-secondary);
+  color:var(--text-primary); text-shadow:0 1px 6px rgba(8,9,11,.85);
   opacity:calc((var(--f,1) - .55) * 3);
 }
 .ring__item.is-front .ring__card{

@@ -51,10 +51,10 @@
     cardAspect:  1.0,     // 1 = square. Set 0.5625 for 16:9.
     cardWidthFrac:0.205,  // card width as a fraction of viewport width
     radiusFrac:  0.32,    // ring radius as a fraction of viewport width (min)
-    refCount:    9,
+    refCount:    11,      // card count the size/spacing is tuned for; more cards shrink them a touch
     minCardW:    120,
     maxCardW:    360,
-    chordFrac:   0.82,    // <1 => neighbours overlap => the wheel looks "full"
+    chordFrac:   1.28,    // neighbour spacing vs card width — >1 leaves a small gap, <1 overlaps
     clickCos:    0.12,    // cards this close to front take clicks (~5 of them) — wider
                           // than the 3 that auto-centre on hover, so cards further
                           // round start responding sooner as they rotate in
@@ -74,6 +74,11 @@
   var noEl     = stage.querySelector('.ring-label__no');
   var N = items.length;
   if (!N) return;
+  // footer numbers come from wheel position, so they can never drift from the label counter
+  items.forEach(function (it, i) {
+    var tag = it.querySelector('.ring__tag');
+    if (tag) tag.textContent = (i < 9 ? '0' : '') + (i + 1);
+  });
 
   var step = 360 / N;
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
