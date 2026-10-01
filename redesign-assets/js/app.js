@@ -57,6 +57,27 @@
     function finish() {
       try { sessionStorage.setItem('by_seen', '1'); } catch (e) {}
       document.body.classList.remove('loading');
+      // the curtain locks scrolling, so the browser's own #section jump is lost; redo it now
+      if (location.hash.length > 1) {
+        var target = null, lastY = -1;
+        try { target = document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch (e) {}
+        var jump = function () {
+          // pinned sections above the target add spacing after load, so land again once they settle
+          if (lastY >= 0 && Math.abs(window.pageYOffset - lastY) > 4) return; // user already scrolled
+          if (window.ScrollTrigger) ScrollTrigger.refresh();
+          root.style.scrollBehavior = 'auto';
+          target.scrollIntoView();
+          root.style.scrollBehavior = '';
+          lastY = window.pageYOffset;
+        };
+        if (target) {
+          jump();
+          setTimeout(jump, 700);
+          setTimeout(jump, 1600);
+          setTimeout(jump, 3200);
+          setTimeout(jump, 5000);
+        }
+      }
       loader.classList.add('done');
       if (hasGSAP && !reduce) {
         var tl = gsap.timeline({ onComplete: function () { loader.remove(); } });
