@@ -955,6 +955,24 @@ ul.proj-list li b, ul.proj-list li strong{ color:var(--text-primary); font-weigh
   font-family:var(--font-mono); font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--amber);
 }
 
+/* ---- project case file: Problem / Approach / Where I lost marks / Result / Learnt ---- */
+.casefile{ margin:clamp(30px,5vh,52px) 0 clamp(8px,2vh,20px); border-top:1px solid var(--hairline-strong); padding-top:20px; }
+.casefile__title{ font-family:var(--font-mono); font-weight:400; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); margin-bottom:6px; }
+.casefile__row{ display:grid; grid-template-columns:1fr; gap:8px 44px; padding:18px 0; border-top:1px solid var(--hairline); }
+.casefile__row:first-of-type{ border-top:none; }
+@media (min-width:760px){ .casefile__row{ grid-template-columns:172px 1fr; gap:0 48px; } }
+.casefile__label{ font-family:var(--font-mono); font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--text-tertiary); line-height:1.6; }
+/* numbered by CSS so hidden (unwritten) rows never leave a gap */
+.casefile{ counter-reset:cf; }
+.casefile__row{ counter-increment:cf; }
+.casefile__label::before{ content:counter(cf, decimal-leading-zero); color:var(--amber); margin-right:10px; }
+.casefile__body{ max-width:66ch; font-size:14px; line-height:1.7; color:var(--text-secondary); }
+.casefile__body p + p{ margin-top:10px; }
+.casefile__body b{ color:var(--text-primary); font-weight:500; }
+/* rows nobody has written yet stay hidden, so the page never shows an empty heading */
+.casefile__row:has(.casefile__body:empty){ display:none; }
+.casefile:not(:has(.casefile__body:not(:empty))){ display:none; }
+
 .cv-facts{ list-style:none; display:flex; flex-direction:column; gap:12px; }
 @media (max-width:899px){ .cv-facts{ margin-top:22px; padding-top:22px; border-top:1px solid var(--hairline); } }
 .cv-facts li{ display:flex; gap:13px; font-size:13px; color:var(--text-secondary); line-height:1.55; }
@@ -970,6 +988,11 @@ ul.proj-list li b, ul.proj-list li strong{ color:var(--text-primary); font-weigh
 .cv-index a{ display:flex; align-items:baseline; gap:14px; padding:15px 0; border-top:1px solid var(--hairline); font-size:14px; color:var(--text-secondary); transition:color .3s var(--ease-out); }
 .cv-index a:hover{ color:var(--amber-bright); }
 .cv-index a .n{ font-family:var(--font-mono); font-size:10px; color:var(--text-tertiary); }
+/* the generic ".article > ul li" dash bullet must not apply here: it floated above each row */
+.article > ul.cv-index{ display:grid; grid-template-columns:1fr; gap:0; max-width:none; margin:0; }
+@media (min-width:720px){ .article > ul.cv-index{ grid-template-columns:1fr 1fr; column-gap:52px; } }
+.article > ul.cv-index li{ padding-left:0; }
+.article > ul.cv-index li::before{ content:none; }
 
 .note-log{ display:flex; flex-direction:column; }
 .note-log__entry{ padding:24px 0; border-bottom:1px dashed var(--hairline); max-width:62ch; }
@@ -1103,6 +1126,8 @@ body.photo-page{ background:#060607; }
 }
 .hall__cap .n{ font-family:var(--font-mono); font-size:10.5px; letter-spacing:.2em; color:var(--amber); }
 .hall__cap .t{ font-family:var(--font-display); font-size:clamp(19px,2.8vw,32px); color:#fff; }
+.hall__cap .note{ flex:0 0 100%; text-align:center; max-width:60ch; margin-inline:auto; font-size:clamp(11.5px,1.1vw,13.5px); line-height:1.5; color:rgba(255,255,255,.66); text-shadow:0 1px 8px rgba(0,0,0,.7); }
+.hall__cap .note:empty{ display:none; }
 .hall__hint{
   position:absolute; left:0; right:0; bottom:7px; text-align:center;
   font-family:var(--font-mono); font-size:9px; letter-spacing:.34em; text-transform:uppercase;
@@ -1174,6 +1199,9 @@ body.viewer-open .hall{ transform:scale(1.06); }
 .viewer__nav:active{ transform:translateY(-50%) scale(.93); }
 .viewer__nav--prev{ left:max(6px,-4vw); }
 .viewer__nav--next{ right:max(6px,-4vw); }
+.viewer__note{ position:absolute; left:50%; transform:translateX(-50%); top:calc(100% + 42px); width:min(62ch,92vw); text-align:center; font-size:13.5px; line-height:1.6; color:var(--text-secondary); }
+.viewer__note:empty{ display:none; }
+.viewer.has-note .viewer__img{ max-height:72vh; }
 .viewer__meta{
   position:absolute; left:0; right:0; bottom:-34px;
   display:flex; gap:18px; justify-content:center;

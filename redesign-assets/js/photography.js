@@ -28,6 +28,8 @@
   var vImg  = document.getElementById('viewer-img');
   var vNo   = document.getElementById('viewer-no');
   var vId   = document.getElementById('viewer-id');
+  var vNote = document.getElementById('viewer-note');
+  var capNote = document.getElementById('hall-note');
 
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var fine   = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
@@ -57,6 +59,9 @@
     }
     if (vNo) vNo.textContent = pad(vIdx + 1) + ' / ' + N;
     if (vId) vId.textContent = label;
+    var note = (f.getAttribute('data-note') || '').trim();   // short memory written in photography.html
+    if (vNote) vNote.textContent = note;
+    viewer.classList.toggle('has-note', !!note);
     try { history.replaceState(null, '', '#frame-' + (vIdx + 1)); } catch (e) {}
   }
   function vLoad(i) {
@@ -252,6 +257,7 @@
       capIdx = nearest;
       capN.textContent = pad(nearest + 1) + ' / ' + N;
       if (capT) capT.textContent = frames[nearest].getAttribute('data-id');
+      if (capNote) capNote.textContent = frames[nearest].getAttribute('data-note') || '';
     }
   }
 
