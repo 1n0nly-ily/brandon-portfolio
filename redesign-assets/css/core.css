@@ -928,11 +928,32 @@ ul.proj-list li b, ul.proj-list li strong{ color:var(--text-primary); font-weigh
 .cv-row__rail b{ display:block; color:var(--amber); font-weight:500; margin-bottom:4px; }
 .cv-row__role{ font-family:var(--font-display); font-size:clamp(18px,2vw,23px); color:var(--text-primary); margin-bottom:4px; }
 .cv-row__org{ font-size:13.5px; color:var(--text-secondary); margin-bottom:15px; }
+/* job title under a company name: smaller, sans, so it reads as a different level from the company */
+.cv-row__job{ font-family:var(--font-body); font-weight:500; font-size:clamp(14.5px,1.4vw,16px); letter-spacing:.005em; color:var(--text-primary); margin-bottom:15px; }
 
 .cv-list{ list-style:none; display:flex; flex-direction:column; gap:9px; max-width:66ch; }
 .cv-list li{ position:relative; padding-left:20px; font-size:13.5px; line-height:1.62; color:var(--text-secondary); }
 .cv-list li::before{ content:"—"; position:absolute; left:0; color:var(--amber); }
 .cv-list li b{ color:var(--text-primary); font-weight:500; }
+
+/* several roles at one company: line + dots, LinkedIn-style */
+.cv-track{ list-style:none; margin-top:2px; }
+.cv-track__item{ position:relative; padding-left:30px; padding-bottom:30px; }
+.cv-track__item:last-child{ padding-bottom:0; }
+.cv-track__item::before{                       /* the dot */
+  content:""; position:absolute; left:0; top:7px; width:11px; height:11px; border-radius:50%;
+  border:1.5px solid var(--text-tertiary); background:var(--bg-0, #08090b); z-index:1;
+}
+.cv-track__item.is-current::before{ border-color:var(--amber); background:var(--amber); box-shadow:0 0 0 4px rgba(255,255,255,.04); }
+.cv-track__item:not(:last-child)::after{       /* the line down to the next dot */
+  content:""; position:absolute; left:5px; top:18px; bottom:-7px; width:1px; background:var(--hairline-strong);
+}
+.cv-track .cv-row__job{ margin-bottom:2px; }
+.cv-track__meta{ font-family:var(--font-mono); font-size:10px; letter-spacing:.08em; text-transform:uppercase; color:var(--text-tertiary); margin-bottom:13px; }
+.cv-track__tag{
+  display:inline-block; vertical-align:middle; margin-left:8px; padding:2px 7px; border:1px solid var(--hairline-amber); border-radius:2px;
+  font-family:var(--font-mono); font-size:9px; letter-spacing:.12em; text-transform:uppercase; color:var(--amber);
+}
 
 .cv-facts{ list-style:none; display:flex; flex-direction:column; gap:12px; }
 @media (max-width:899px){ .cv-facts{ margin-top:22px; padding-top:22px; border-top:1px solid var(--hairline); } }
