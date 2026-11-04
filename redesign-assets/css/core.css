@@ -1661,3 +1661,43 @@ body.music-page .mx-track.is-playing .mx-track__n{ animation:mxPulse 2.6s ease-i
   color:#180D04; background:var(--amber-bright);
   padding:3px 6px; border-radius:2px;
 }
+
+/* ============================================================
+   WORK IN PROGRESS NOTICE  (used on unfinished project articles)
+   ============================================================ */
+.wip-note{
+  position:relative; display:flex; gap:18px; align-items:flex-start;
+  margin:clamp(24px,4vh,40px) 0 0; padding:20px 24px 20px 26px;
+  background:rgba(217,138,75,0.07);
+  border:1px solid var(--hairline-amber);
+  border-left:3px solid var(--amber);
+  border-radius:3px; overflow:hidden;
+}
+.wip-note::before{ /* hazard-stripe edge */
+  content:""; position:absolute; left:0; right:0; top:0; height:4px;
+  background:repeating-linear-gradient(-45deg, var(--amber) 0 10px, transparent 10px 20px);
+  opacity:.55;
+}
+.wip-note__icon{
+  flex:none; width:34px; height:34px; margin-top:4px;
+  display:grid; place-items:center; border-radius:50%;
+  border:1px solid var(--amber); color:var(--amber-bright);
+}
+.wip-note__icon svg{ width:18px; height:18px; animation:wip-spin 8s linear infinite; }
+.wip-note__tag{
+  display:inline-flex; align-items:center; gap:8px; margin-bottom:6px;
+  font-family:var(--font-mono); font-size:10.5px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--amber-bright);
+}
+.wip-note__tag::before{
+  content:""; width:7px; height:7px; border-radius:50%; background:var(--amber-bright);
+  animation:wip-pulse 1.8s ease-in-out infinite;
+}
+.wip-note__title{ font-family:var(--font-display); font-weight:400; font-size:clamp(18px,2.2vw,22px); color:var(--text-primary); margin-bottom:6px; }
+.wip-note__text{ max-width:66ch; font-size:14px; line-height:1.7; color:var(--text-secondary); }
+@keyframes wip-spin{ to{ transform:rotate(360deg); } }
+@keyframes wip-pulse{ 0%,100%{ opacity:1; } 50%{ opacity:.25; } }
+@media (prefers-reduced-motion: reduce){
+  .wip-note__icon svg, .wip-note__tag::before{ animation:none; }
+}
+@media (max-width:520px){ .wip-note{ flex-direction:column; gap:12px; padding:20px 18px; } }
