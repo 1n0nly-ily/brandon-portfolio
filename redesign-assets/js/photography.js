@@ -1,6 +1,6 @@
 /* ============================================================
    BRANDON YUEN — REDESIGN · PHOTOGRAPHY
-   The corridor: 17 frames hung down a receding 3D hall.
+   The corridor: 23 frames hung down a receding 3D hall.
    Page scroll flies the camera forward through it; a
    perspective floor + ceiling grid stream past; the whole
    space leans toward the pointer and banks as you go deeper.
