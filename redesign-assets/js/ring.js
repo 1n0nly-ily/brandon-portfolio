@@ -429,7 +429,7 @@
         var far = Math.min(1, s.r / (maxR * 0.9));
         var x0 = cx + Math.cos(s.a) * r0, y0 = cy + Math.sin(s.a) * r0;
         var x1 = cx + Math.cos(s.a) * s.r, y1 = cy + Math.sin(s.a) * s.r;
-        ctx.strokeStyle = 'rgba(255,' + (206 - far * 60 | 0) + ',' + (150 + far * 50 | 0) + ',' + (0.12 + far * 0.7) + ')';
+        ctx.strokeStyle = 'rgba(' + (far * 70 | 0) + ',' + (205 + far * 45 | 0) + ',' + (190 + far * 55 | 0) + ',' + (0.12 + far * 0.7) + ')';
         ctx.lineWidth = 0.5 + far * 2.6;
         ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();
         if (s.r > maxR) { s.r = 0; }

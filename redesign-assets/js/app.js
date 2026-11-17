@@ -412,10 +412,38 @@
   }
 
   /* ------------------------------------------------------------
+     header gauge: airfoil pitches (angle of attack) with scroll speed
+     ------------------------------------------------------------ */
+  function initAoA() {
+    var el = document.querySelector('.aoa');
+    if (!el || reduce) return;
+    var foil = el.querySelector('.aoa__foil');
+    var out = el.querySelector('.aoa__txt b');
+    var a = 0, target = 0, lastY = window.pageYOffset, lastT = performance.now(), running = false;
+
+    function frame() {
+      target *= 0.9;                       // the wing relaxes back to level
+      a += (target - a) * 0.14;
+      if (Math.abs(a) < 0.03 && Math.abs(target) < 0.03) { a = 0; target = 0; running = false; }
+      foil.style.transform = 'rotate(' + (-a).toFixed(2) + 'deg)';
+      out.textContent = (a < 0 ? '−' : '+') + Math.abs(a).toFixed(1);
+      if (running) raf(frame);
+    }
+    window.addEventListener('scroll', function () {
+      var y = window.pageYOffset, t = performance.now();
+      var v = (y - lastY) / Math.max(1, t - lastT);   // px per ms, + = scrolling down
+      lastY = y; lastT = t;
+      target = Math.max(-16, Math.min(16, v * 8));
+      if (!running) { running = true; raf(frame); }
+    }, { passive: true });
+  }
+
+  /* ------------------------------------------------------------
      boot
      ------------------------------------------------------------ */
   ready(function () {
     initHeader();
+    initAoA();
     initMediaGuards();
     initReveal();
     initRail();

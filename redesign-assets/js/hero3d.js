@@ -32,7 +32,7 @@
   scene.add(rig);
   rig.rotation.x = 0.42;
 
-  var AMBER = 0xF0AA6C, ICE = 0x6FA3C7, INK = 0x8A8880;
+  var AMBER = 0x2EF2DD, ICE = 0x6FA3C7, INK = 0x8A8880;
 
   // --- core sphere (the "body") --------------------------------------------
   var sphere = new THREE.Mesh(
